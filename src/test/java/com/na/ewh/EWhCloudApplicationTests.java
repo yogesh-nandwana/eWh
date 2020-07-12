@@ -1,10 +1,10 @@
-package tacos;
+package com.na.ewh;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class TacoCloudApplicationTests {
+class EwhCloudApplicationTests {
 
 	@Test
 	void contextLoads() {

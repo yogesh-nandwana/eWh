@@ -1,4 +1,4 @@
-package tacos;
+package com.na.ewh;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

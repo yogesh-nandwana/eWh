@@ -8,11 +8,11 @@
 		<version>2.3.1.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>sisa</groupId>
-	<artifactId>taco-cloud</artifactId>
+	<groupId>com</groupId>
+	<artifactId>EWh-cloud</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>taco-cloud</name>
-	<description>Taco cloud example</description>
+	<name>EWh-cloud</name>
+	<description>EWh cloud example</description>
 
 	<properties>
 		<java.version>1.8</java.version>

@@ -4,29 +4,36 @@
 	<meta charset="utf-8">
 	<title th:text="#{home.title}">EWh Application1</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" th:href="@{css/ewh.css}">
 	<link rel="stylesheet" th:href="@{css/bootstrap.min.css}">
 </head>
 <body class="container" style="width: 400px">
 	<div style="text-align: center;padding-top: 50px">
+		<img alt="Inventory image" th:src="@{images/inventory.jpg}" th:height="100px" th:width="400px">
 		<h1 th:text="#{home.signin}">Please sign in1</h1>
 	</div>
 	
 	<div style="padding-top: 50px">
-		<form action="/login" class="form">
+		<form method="POST" action="/login" th:object="${loginForm}">
+			<div th:if="${#fields.hasErrors()}">
+ 				<span class="validationError">Please correct the problems below and resubmit.</span>
+ 			</div>
 			<div class="form-group">
-				<label for="loginId" th:text="#{home.loginId}">LoginId1</label>
-				<input class="form-control" id="loginId">
+				<label for="UserId" th:text="#{home.userId}">UserId1</label>
+				<input class="form-control" id="userId" name="userId" th:field="*{userId}">
+				<span class="validationError" th:if="${#fields.hasErrors('userId')}" th:errors="*{userId}">userId Error</span>
 			</div>
 			<div class="form-group">
 				<label for="password" th:text="#{home.pwd}">Password1</label>
-				<input class="form-control" id="pwd">
+				<input class="form-control" id="pwd" name="pwd" th:field="*{pwd}">
+				<span class="validationError" th:if="${#fields.hasErrors('pwd')}" th:errors="*{pwd}">password Error</span>
 			</div>		
 			<button type="submit" class="btn btn-primary" th:text="#{home.submit}">Submit1</button>
 		</form>
 	</div>
 	
 	<div style="text-align: center;">
-		<p class="mt-5 mb-3 text-muted" th:text="#{copyright}">Copyright &copy; 2019-2020</p>
+		<p class="mt-5 mb-3 text-muted">Copyright &copy; 2019-2020</p>
 	</div>
 	
   <script th:src="@{js/jquery-slim.min.js}"></script>

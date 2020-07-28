@@ -6,16 +6,41 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="stylesheet" th:href="@{css/bootstrap.min.css}">
 </head>
-<body class="container" style="width: 400px">
-	<img alt="Inventory image" th:src="@{images/inventory.jpg}">
-	<div style="text-align: center;padding-top: 50px">
-		<h1 th:text="#{success.greeting}">Please sign in1</h1>
+<body class="container">
+	<div style="text-align: center;padding-top: 20px">
+	    <img alt="Inventory image" th:src="@{images/inventory.jpg}" th:height="100px" align="middle">
+		<h1 th:text="#{customer.info}">Customer Info</h1>
+		<div class="table-responsive" style="padding-top: 10px;">
+		<table class="table">
+	  		<thead>
+	    		<tr>
+		      		<th scope="col">Id</th>
+		      		<th scope="col">Name</th>
+		      		<th scope="col">DOB</th>
+		      		<th scope="col">DOR</th>
+		      		<th scope="col">TYPE</th>
+		      		<th scope="col">Address</th>
+		      		<th scope="col">Deposit</th>
+		      		<th scope="col">Eviction</th>
+		      		<th scope="col">Comments</th>
+	    		</tr>
+	 	  	</thead>
+	  	  	<tbody th:each="cust : ${customers}">
+	  	    	<tr>
+	      		  <th scope="row" th:text="${cust.id}">Id</th>
+	      		  <td th:text="|${cust.firstName} ${cust.middleName==null?'':cust.middleName} ${cust.lastName}|">Name</td>
+	      		  <td th:text="${cust.dob}">Dob</td>
+	      		  <td th:text="${cust.dor}">Dor</td>
+	      		  <td th:text="${cust.type}">Type</td>
+	      		  <td th:text="|${cust.houseNo==null?'':cust.houseNo},${cust.street==null?'':cust.street},${cust.landmark==null?'':cust.landmark},${cust.city},${cust.state},${cust.zipcode},${cust.country}|">Address</td>
+	      		  <td><a href="#" th:text=#{customer.deposit}>Deposit</a></td>	
+	      		  <td><a href="#" th:text=#{customer.eviction}>Eviction</a></td>		
+	      		  <td th:text="${cust.comments}">Comments</td>
+	    		</tr>	
+	  		</tbody>
+		</table>
+		</div>
 	</div>
-	
-	<div style="padding-top: 50px">
-		<span>Congratulations! You are old enough to sign up for this site.</span>
-	</div>
-	
 	<div style="text-align: center;">
 		<p class="mt-5 mb-3 text-muted">Copyright &copy; 2019-2020</p>
 	</div>

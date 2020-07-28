@@ -35,11 +35,11 @@ public class Customer {
 	@NotNull
 	private Date dob;
 
-	private Date registrationDate;
+	private Date dor;
 
 	@NotNull
 	@Enumerated(EnumType.STRING)
-	private TYPE custType;
+	private TYPE type;
 
 	private String houseNo;
 	private String street;

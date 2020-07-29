@@ -14,32 +14,35 @@
 		<table class="table">
 	  		<thead>
 	    		<tr>
-		      		<th scope="col">Id</th>
-		      		<th scope="col">Name</th>
-		      		<th scope="col">DOB</th>
-		      		<th scope="col">DOR</th>
-		      		<th scope="col">TYPE</th>
-		      		<th scope="col">Address</th>
-		      		<th scope="col">Deposit</th>
-		      		<th scope="col">Eviction</th>
-		      		<th scope="col">Comments</th>
+		      		<th scope="col" th:text="#{customer.id}">Id1</th>
+		      		<th scope="col" th:text="#{customer.name}">Name1</th>
+		      		<th scope="col" th:text="#{customer.dob}">DOB1</th>
+		      		<th scope="col" th:text="#{customer.dor}">DOR1</th>
+		      		<th scope="col" th:text="#{customer.type}">Type1</th>
+		      		<th scope="col" th:text="#{customer.address}">Address1</th>
+		      		<th scope="col" th:text="#{customer.store}">Store1</th>
+		      		<th scope="col" th:text="#{customer.evict}">Evict1</th>
+		      		<th scope="col" th:text="#{customer.remark}">Remark1</th>
 	    		</tr>
 	 	  	</thead>
 	  	  	<tbody th:each="cust : ${customers}">
 	  	    	<tr>
 	      		  <th scope="row" th:text="${cust.id}">Id</th>
-	      		  <td th:text="|${cust.firstName} ${cust.middleName==null?'':cust.middleName} ${cust.lastName}|">Name</td>
+	      		  <td th:text="${cust.getName()}">Name</td>
 	      		  <td th:text="${cust.dob}">Dob</td>
 	      		  <td th:text="${cust.dor}">Dor</td>
 	      		  <td th:text="${cust.type}">Type</td>
-	      		  <td th:text="|${cust.houseNo==null?'':cust.houseNo},${cust.street==null?'':cust.street},${cust.landmark==null?'':cust.landmark},${cust.city},${cust.state},${cust.zipcode},${cust.country}|">Address</td>
-	      		  <td><a href="#" th:text=#{customer.deposit}>Deposit</a></td>	
-	      		  <td><a href="#" th:text=#{customer.eviction}>Eviction</a></td>		
-	      		  <td th:text="${cust.comments}">Comments</td>
+	      		  <td th:text="${cust.getAddress()}">Address</td>
+	      		  <td><a th:href="@{|customers/${cust.id}/store|}" th:text=#{customer.store}>Store</a></td>	
+	      		  <td><a th:href="@{|customers/${cust.id}/evict|}" th:text=#{customer.evict}>Evict</a></td>		
+	      		  <td th:text="${cust.remark}">Remark</td>
 	    		</tr>	
 	  		</tbody>
 		</table>
 		</div>
+	</div>
+	<div style="text-align: center;padding-top: 20px">
+		<button th:text="#{customer.add}">Add customer1</button>
 	</div>
 	<div style="text-align: center;">
 		<p class="mt-5 mb-3 text-muted">Copyright &copy; 2019-2020</p>

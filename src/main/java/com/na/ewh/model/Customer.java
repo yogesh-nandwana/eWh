@@ -1,6 +1,8 @@
 package com.na.ewh.model;
 
 import java.sql.Date;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -52,9 +54,27 @@ public class Customer {
 	@NotNull
 	private String country;
 	@NotNull
-	private String zipcode;
+	private String pincode;
 	
-	private String comments;
+	private String remark;
 
-	private static enum TYPE {TRADER,FARMER};
+	private static enum TYPE {
+		TRADER("Trader"),FARMER("Farmer");
+		private String type;
+		TYPE(String custType) {
+			this.type = custType;
+		}
+		@Override
+		public String toString() {
+			return type;
+		}
+	};
+	
+	public String getAddress() {
+		return Stream.of(houseNo,street,landmark,city,state,country,pincode).filter(str -> str!=null && !str.isEmpty()).collect(Collectors.joining(","));
+	}
+	
+	public String getName() {
+		return Stream.of(firstName,middleName,lastName).filter(str -> str!=null && !str.isEmpty()).collect(Collectors.joining(" "));
+	}
 }

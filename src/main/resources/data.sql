@@ -14,12 +14,12 @@ CREATE TABLE CUSTOMER (
   CITY VARCHAR2(10) NOT NULL,
   STATE VARCHAR2(10) NOT NULL,
   COUNTRY VARCHAR2(10) NOT NULL,
-  ZIPCODE VARCHAR2(6) NOT NULL,
-  COMMENTS VARCHAR(250) NULL  
+  PINCODE VARCHAR2(6) NOT NULL,
+  REMARK VARCHAR(250) NULL  
 );
  
 INSERT INTO CUSTOMER 
-  (FIRST_NAME,MIDDLE_NAME,LAST_NAME,DOB,DOR,TYPE,HOUSE_NO,STREET,LANDMARK,CITY,STATE,COUNTRY,ZIPCODE,COMMENTS) VALUES
-  ('test1', null, 'user1','1980-01-01',CURRENT_DATE,'TRADER',null,null,null,'Mumbai','MH','INDIA','123456','comment1'),
-  ('test2', 'jk', 'user2','1990-01-01',CURRENT_DATE,'FARMER',null,'church street',null,'Mumbai','MH','INDIA','123456',null),
-  ('test3', null, 'user3','1990-01-01',CURRENT_DATE,'TRADER',10/1,'temple street',null,'Mumbai','MH','INDIA','123456','comment3');
+  (FIRST_NAME,MIDDLE_NAME,LAST_NAME,DOB,DOR,TYPE,HOUSE_NO,STREET,LANDMARK,CITY,STATE,COUNTRY,PINCODE,REMARK) VALUES
+  ('test1', null, 'user1','1980-01-01',CURRENT_DATE,'TRADER',null,null,null,'Mumbai','MH','India','123456','comment1'),
+  ('test2', 'jk', 'user2','1990-01-01',CURRENT_DATE,'FARMER',null,'church street',null,'Mumbai','MH','India','123456',null),
+  ('test3', null, 'user3','1990-01-01',CURRENT_DATE,'TRADER',10/1,'temple street',null,'Mumbai','MH','India','123456','comment3');

@@ -4,12 +4,15 @@ import java.sql.Date;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -23,6 +26,10 @@ public class Customer {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
+	
+	@NotNull
+	@Enumerated(EnumType.STRING)
+	private INITIAL initial;
 
 	@NotNull
 	@Size(min = 5,max = 15,message = "First Name must be between 5 to 15 characters long.")
@@ -43,22 +50,27 @@ public class Customer {
 	@Enumerated(EnumType.STRING)
 	private TYPE type;
 
-	private String houseNo;
-	private String street;
-	private String landmark;
+	@OneToOne(mappedBy = "customer",cascade = CascadeType.ALL,fetch = FetchType.LAZY,optional = false)
+	private Contact contact;
 	
-	@NotNull
-	private String city;
-	@NotNull
-	private String state;
-	@NotNull
-	private String country;
-	@NotNull
-	private String pincode;
+	@OneToOne(mappedBy = "customer",cascade = CascadeType.ALL,fetch = FetchType.LAZY,optional = false)
+	private Address address;
 	
 	private String remark;
+	
+	public static enum INITIAL{
+		MR("Mr"),MRS("Mrs"),MISS("Miss");
+		private String initial;
+		private INITIAL(String initial) {
+			this.initial = initial;
+		}
+		@Override
+		public String toString(){
+			return this.initial;
+		}
+	}
 
-	private static enum TYPE {
+	public static enum TYPE {
 		TRADER("Trader"),FARMER("Farmer");
 		private String type;
 		TYPE(String custType) {
@@ -70,11 +82,7 @@ public class Customer {
 		}
 	};
 	
-	public String getAddress() {
-		return Stream.of(houseNo,street,landmark,city,state,country,pincode).filter(str -> str!=null && !str.isEmpty()).collect(Collectors.joining(","));
-	}
-	
 	public String getName() {
-		return Stream.of(firstName,middleName,lastName).filter(str -> str!=null && !str.isEmpty()).collect(Collectors.joining(" "));
+		return Stream.of(initial.toString(),firstName,middleName,lastName).filter(str -> str!=null && !str.isEmpty()).collect(Collectors.joining(" "));
 	}
 }

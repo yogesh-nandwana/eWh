@@ -24,4 +24,10 @@ public class CustomerController {
 		m.addAttribute("customers", customers);
 		return "customers";
 	}
+	
+	@GetMapping("/addcustomer")
+	public String addCustomer() {
+		log.info("/addcustomer request arrived for userId");
+		return "addcustomer";
+	}
 }

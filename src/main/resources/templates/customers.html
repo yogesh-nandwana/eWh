@@ -11,39 +11,41 @@
 	    <img alt="Inventory image" th:src="@{images/inventory.jpg}" th:height="100px" align="middle">
 		<h1 th:text="#{customer.info}">Customer Info</h1>
 		<div class="table-responsive" style="padding-top: 10px;">
-		<table class="table">
-	  		<thead>
-	    		<tr>
-		      		<th scope="col" th:text="#{customer.id}">Id1</th>
-		      		<th scope="col" th:text="#{customer.name}">Name1</th>
-		      		<th scope="col" th:text="#{customer.dob}">DOB1</th>
-		      		<th scope="col" th:text="#{customer.dor}">DOR1</th>
-		      		<th scope="col" th:text="#{customer.type}">Type1</th>
-		      		<th scope="col" th:text="#{customer.address}">Address1</th>
-		      		<th scope="col" th:text="#{customer.store}">Store1</th>
-		      		<th scope="col" th:text="#{customer.evict}">Evict1</th>
-		      		<th scope="col" th:text="#{customer.remark}">Remark1</th>
-	    		</tr>
-	 	  	</thead>
-	  	  	<tbody th:each="cust : ${customers}">
-	  	    	<tr>
-	      		  <th scope="row" th:text="${cust.id}">Id</th>
-	      		  <td th:text="${cust.getName()}">Name</td>
-	      		  <td th:text="${cust.dob}">Dob</td>
-	      		  <td th:text="${cust.dor}">Dor</td>
-	      		  <td th:text="${cust.type}">Type</td>
-	      		  <td th:text="${cust.getAddress()}">Address</td>
-	      		  <td><a th:href="@{|customers/${cust.id}/store|}" th:text=#{customer.store}>Store</a></td>	
-	      		  <td><a th:href="@{|customers/${cust.id}/evict|}" th:text=#{customer.evict}>Evict</a></td>		
-	      		  <td th:text="${cust.remark}">Remark</td>
-	    		</tr>	
-	  		</tbody>
-		</table>
+			<table class="table">
+		  		<thead>
+		    		<tr>
+			      		<th scope="col" th:text="#{customer.id}">Id1</th>
+			      		<th scope="col" th:text="#{customer.name}">Name1</th>
+			      		<th scope="col" th:text="#{customer.dob}">DOB1</th>
+			      		<th scope="col" th:text="#{customer.dor}">DOR1</th>
+			      		<th scope="col" th:text="#{customer.type}">Type1</th>
+			      		<th scope="col" th:text="#{customer.address}">Address1</th>
+			      		<th scope="col" th:text="#{customer.store}">Store1</th>
+			      		<th scope="col" th:text="#{customer.evict}">Evict1</th>
+			      		<th scope="col" th:text="#{customer.remark}">Remark1</th>
+		    		</tr>
+		 	  	</thead>
+		  	  	<tbody th:each="cust : ${customers}">
+		  	    	<tr>
+		      		  <th scope="row" th:text="${cust.id}">Id</th>
+		      		  <td th:text="${cust.getName()}">Name</td>
+		      		  <td th:text="${cust.dob}">Dob</td>
+		      		  <td th:text="${cust.dor}">Dor</td>
+		      		  <td th:text="${cust.type}">Type</td>
+		      		  <td th:text="${cust.getAddress()}">Address</td>
+		      		  <td><a th:href="@{|customers/${cust.id}/store|}" th:text=#{customer.store}>Store</a></td>	
+		      		  <td><a th:href="@{|customers/${cust.id}/evict|}" th:text=#{customer.evict}>Evict</a></td>		
+		      		  <td th:text="${cust.remark}">Remark</td>
+		    		</tr>	
+		  		</tbody>
+			</table>
 		</div>
 	</div>
-	<div style="text-align: center;padding-top: 20px">
-		<button th:text="#{customer.add}">Add customer1</button>
-	</div>
+	<form method="GET" action="/addcustomer">
+		<div style="text-align: center;padding-top: 20px">
+			<button th:text="#{addcustomer.add}">Add customer1</button>
+		</div>
+	</form>
 	<div style="text-align: center;">
 		<p class="mt-5 mb-3 text-muted">Copyright &copy; 2019-2020</p>
 	</div>

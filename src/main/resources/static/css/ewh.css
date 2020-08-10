@@ -2,9 +2,21 @@ span.validationError {
 	color: red;
 }
 
-.form {
-	border: 10px;
+body{
+   width: 80%;
+}
+
+.form_class {
+	width:60%;
+	padding-left:10px;
+	padding-right:10px;
+	border: 1px solid green;	
 	border-color: green;
 	padding-top:20px;
 	margin:auto;
+}
+
+.header {
+	text-align: center;
+	padding-top: 20px;
 }

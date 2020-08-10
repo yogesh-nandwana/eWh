@@ -5,15 +5,16 @@
 	<title th:text="#{home.title}">EWh Application1</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="stylesheet" th:href="@{css/bootstrap.min.css}">
+	<link rel="stylesheet" th:href="@{css/ewh.css}">
 </head>
 <body class="container">
-	<div style="text-align: center;padding-top: 20px">
+	<div class="header">
 	    <img alt="Inventory image" th:src="@{images/inventory.jpg}" th:height="100px" align="middle">
 		<h1 th:text="#{addcustomer.add}">Add Customer1</h1>
 	</div>
-	<div style="text-align:center;padding-top:20px">
+	<div class="form_class">
 			<form>
-				<div>
+				<div class="form-group">
   					<select name="Initial" class="form-control-sm">
   						<option value="MR">Mr</option>
   						<option value="MRS">Mrs</option>
@@ -24,14 +25,20 @@
   					<input type="text" class="form-control-sm" name="lastName" placeholder="Last name">
     			</div>
   				<div class="form-group">
-  					<label for="dob" class="form-control-sm">Birthday:</label>
+  					<select name="type" class="form-control-sm">
+  						<option value="TRADER">Trader</option>
+  						<option value="FARMER">Farmer</option>
+  					</select>
+  					<span>Birthdate:</span>
   					<input type="date" name="dob" id="dob" class="form-control-sm" placeholder="Birthday">
   				</div>
+  				 <label class="form-control-sm">ContactInfo:</label>
   				<div class="form-group">
   					<input type="email" name="email" class="form-control-sm" placeholder="Email">
   					<input type="email" name="landlineNo" class="form-control-sm" placeholder="Landline#">
   					<input type="email" name="mobileNo" class="form-control-sm" placeholder="MobileNo">
   				</div>
+  				<label class="form-control-sm">Address:</label>
   				<div class="form-group">
   					<input type="text" name="houseNo" class="form-control-sm" placeholder="House#">
   					<input type="text" name="street" class="form-control-sm" placeholder="Street">
@@ -41,10 +48,13 @@
   					<input type="text" name="city" class="form-control-sm" placeholder="City">
   					<input type="text" name="state" class="form-control-sm" placeholder="State">
   					<input type="text" name="country" class="form-control-sm" placeholder="Country">
-  					<input type="text" name="pincode" class="form-control-sm" placeholder="Pincode">
   				</div>
   				<div class="form-group">
-  					<input type="text" class="form-control-sm" name="remarks" placeholder="Remarks(If any)">
+  					<input type="text" name="pincode" class="form-control-sm" placeholder="Pincode">
+  				</div>
+  				
+  				<div class="form-group">
+  					<input type="text" class="form-control" name="remarks" placeholder="Remarks(If any)">
   				</div>
 			</form>
 		</div>

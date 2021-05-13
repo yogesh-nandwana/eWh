@@ -8,9 +8,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.na.ewh.model.LoginForm;
 
-import lombok.extern.slf4j.Slf4j;
-
-@Slf4j
 @Controller
 public class LoginController {
 	
@@ -21,12 +18,12 @@ public class LoginController {
 		}
 		String userId = loginForm.getUserId();
 		String pwd = loginForm.getPwd();
-		log.info("/login request arrived for userId:"+userId);
+		//log.info("/login request arrived for userId:"+userId);
 		if("test".equals(userId) && "test123".equals(pwd)) {
-			log.info("user:"+userId+" logged in successful, redirecting to customers page.");
+			//log.info("user:"+userId+" logged in successful, redirecting to customers page.");
 			return "redirect:/customers";
 		}else {
-			log.info("user:"+userId+" logged in failed, redirecting back to home page.");
+			//log.info("user:"+userId+" logged in failed, redirecting back to home page.");
 			return "home";
 		}		
 	}

@@ -10,9 +10,6 @@ import javax.persistence.MapsId;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.Email;
 
-import lombok.Data;
-
-@Data
 @Entity
 public class Contact {
 	@Id
@@ -32,5 +29,25 @@ public class Contact {
 	@Override
 	public String toString() {
 		return Stream.of(email,landlineNo,mobileNo).filter(str->str!=null && !str.isEmpty()).collect(Collectors.joining(","));
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public void setLandlineNo(String landlineNo) {
+		this.landlineNo = landlineNo;
+	}
+
+	public void setMobileNo(String mobileNo) {
+		this.mobileNo = mobileNo;
 	}
 }

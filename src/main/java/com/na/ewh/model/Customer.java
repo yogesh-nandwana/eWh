@@ -16,11 +16,6 @@ import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-@Data
-@NoArgsConstructor()
 @Entity
 public class Customer {
 	@Id
@@ -84,5 +79,49 @@ public class Customer {
 	
 	public String getName() {
 		return Stream.of(initial.toString(),firstName,middleName,lastName).filter(str -> str!=null && !str.isEmpty()).collect(Collectors.joining(" "));
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public void setInitial(INITIAL initial) {
+		this.initial = initial;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public void setMiddleName(String middleName) {
+		this.middleName = middleName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public void setDob(Date dob) {
+		this.dob = dob;
+	}
+
+	public void setDor(Date dor) {
+		this.dor = dor;
+	}
+
+	public void setType(TYPE type) {
+		this.type = type;
+	}
+
+	public void setContact(Contact contact) {
+		this.contact = contact;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
+	public void setRemark(String remark) {
+		this.remark = remark;
 	}
 }

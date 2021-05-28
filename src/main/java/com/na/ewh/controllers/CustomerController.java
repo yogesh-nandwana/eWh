@@ -1,5 +1,6 @@
 package com.na.ewh.controllers;
 
+import org.slf4j.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,6 +11,7 @@ import com.na.ewh.services.CustomerService;
 
 @Controller
 public class CustomerController {
+	private static final Logger log = LoggerFactory.getLogger(CustomerController.class);
 	
 	@Autowired
 	CustomerService customerService;
@@ -17,14 +19,14 @@ public class CustomerController {
 	@GetMapping("/customers")
 	public String getAllCustomers(Model m) {
 		Iterable<Customer> customers = customerService.getCustomers();
-		//log.info("/customers request arrived for userId");
+		log.info("/customers request arrived for userId");
 		m.addAttribute("customers", customers);
 		return "customers";
 	}
 	
 	@GetMapping("/addcustomer")
 	public String addCustomer() {
-		//log.info("/addcustomer request arrived for userId");
+		log.info("/addcustomer request arrived for userId");
 		return "addcustomer";
 	}
 }

@@ -13,7 +13,6 @@ import com.na.ewh.model.Contact;
 import com.na.ewh.model.Customer;
 import com.na.ewh.repositroy.ICustomerRepository;
 
-
 @RunWith(SpringRunner.class)
 @DataJpaTest
 public class ICustomerRepositoryTest {
@@ -35,8 +34,8 @@ public class ICustomerRepositoryTest {
 		contact.setCustomer(customer);
 		address.setCustomer(customer);
 
-		customer.setInitial(Customer.INITIAL.MR);
-		customer.setType(Customer.TYPE.TRADER);
+		customer.setInitial("Mr");
+		customer.setCustomerType("Trader");
 		customer.setFirstName("Mohan");
 		customer.setMiddleName("Lal");
 		customer.setLastName("Bagwaan");

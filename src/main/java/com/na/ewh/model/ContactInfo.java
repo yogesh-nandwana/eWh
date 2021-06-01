@@ -7,13 +7,13 @@ import javax.persistence.*;
 import javax.validation.constraints.*;
 
 @Entity
-public class Contact {
+public class ContactInfo {
 	@Id
 	private Long id;
 
 	@MapsId
 	@OneToOne(fetch = FetchType.LAZY)
-	private Customer customer;
+	private CustomerInfo customer;
 
 	@Email
 	private String email;
@@ -25,7 +25,7 @@ public class Contact {
 		this.id = id;
 	}
 
-	public void setCustomer(Customer customer) {
+	public void setCustomer(CustomerInfo customer) {
 		this.customer = customer;
 	}
 

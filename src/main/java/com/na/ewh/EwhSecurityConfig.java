@@ -15,6 +15,7 @@ import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import com.na.ewh.model.EwhUserDetails;
+import com.na.ewh.model.UserInfo;
 import com.na.ewh.repositroy.EwhUserDetailServiceRepo;
 
 @EnableWebSecurity
@@ -26,11 +27,11 @@ public class EwhSecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
 		.antMatchers("/").permitAll()
-		.antMatchers("/customers").authenticated().and().formLogin();
-//		.antMatchers("/admin", "/h2-console/**").hasRole("ADMIN")
-//		.and().csrf().ignoringAntMatchers("/h2-console/**")//don't apply CSRF protection to /h2-console
-//        .and().headers().frameOptions().sameOrigin()//allow use of frame to same origin urls
-        //.formLogin();//enable form login instead of basic login
+		.antMatchers("/customers").authenticated()
+		.antMatchers("/admin", "/h2-console/**").hasRole("ADMIN")
+		.and().csrf().ignoringAntMatchers("/h2-console/**")//don't apply CSRF protection to /h2-console
+        .and().headers().frameOptions().sameOrigin()//allow use of frame to same origin urls
+        .and().formLogin();//enable form login instead of basic login
 	}
 
 	@Override
@@ -38,7 +39,7 @@ public class EwhSecurityConfig extends WebSecurityConfigurerAdapter {
 		auth.userDetailsService(new UserDetailsService() {
 			@Override
 			public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-				Optional<com.na.ewh.model.User> user = userDetailRepo.findByUserName(username);
+				Optional<UserInfo> user = userDetailRepo.findByUserName(username);
 				user.orElseThrow(() -> new UsernameNotFoundException("Not found:"+username));
 				return user.map(EwhUserDetails::new).get();
 			}

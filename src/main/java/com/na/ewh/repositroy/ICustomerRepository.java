@@ -1,8 +1,8 @@
 package com.na.ewh.repositroy;
 
 import org.springframework.data.repository.CrudRepository;
-import com.na.ewh.model.Customer;
+import com.na.ewh.model.CustomerInfo;
 
-public interface ICustomerRepository extends CrudRepository<Customer, Long> { 
+public interface ICustomerRepository extends CrudRepository<CustomerInfo, Long> { 
 
 }

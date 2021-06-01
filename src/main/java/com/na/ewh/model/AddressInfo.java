@@ -11,7 +11,7 @@ import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
 
 @Entity
-public class Address {
+public class AddressInfo {
 	@Id
 	private long id;
 	
@@ -30,7 +30,7 @@ public class Address {
 	
 	@OneToOne(fetch = FetchType.LAZY)
 	@MapsId
-	Customer customer;
+	CustomerInfo customer;
 	
 	public void setId(long id) {
 		this.id = id;
@@ -78,7 +78,7 @@ public class Address {
 
 
 
-	public void setCustomer(Customer customer) {
+	public void setCustomer(CustomerInfo customer) {
 		this.customer = customer;
 	}
 

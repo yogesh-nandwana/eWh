@@ -6,7 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import com.na.ewh.model.Customer;
+import com.na.ewh.model.CustomerInfo;
 import com.na.ewh.services.CustomerService;
 
 @Controller
@@ -18,7 +18,7 @@ public class CustomerController {
 	
 	@GetMapping("/customers")
 	public String getAllCustomers(Model m) {
-		Iterable<Customer> customers = customerService.getCustomers();
+		Iterable<CustomerInfo> customers = customerService.getCustomers();
 		log.info("/customers request arrived for userId");
 		m.addAttribute("customers", customers);
 		return "customers";

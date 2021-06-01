@@ -4,11 +4,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
 @Entity
-@Table(name = "USERS")
-public class User {
+public class UserInfo {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
@@ -18,9 +16,9 @@ public class User {
 	private String roles;
 	private boolean enabled;
 	
-	public User() {}
+	public UserInfo() {}
 	
-	public User(String userName, String password, String roles, boolean enabled) {
+	public UserInfo(String userName, String password, String roles, boolean enabled) {
 		super();
 		this.userName = userName;
 		this.password = password;

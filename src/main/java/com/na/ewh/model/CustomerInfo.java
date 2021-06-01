@@ -8,7 +8,7 @@ import javax.persistence.*;
 import javax.validation.constraints.*;
 
 @Entity
-public class Customer {
+public class CustomerInfo {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
@@ -39,10 +39,10 @@ public class Customer {
 	private String remark;
 
 	@OneToOne(mappedBy = "customer")
-	private Contact contact;
+	private ContactInfo contact;
 
 	@OneToOne(mappedBy = "customer")
-	private Address address;
+	private AddressInfo address;
 	
 	public Long getId() {
 		return id;
@@ -116,19 +116,19 @@ public class Customer {
 		this.remark = remark;
 	}
 
-	public Contact getContact() {
+	public ContactInfo getContact() {
 		return contact;
 	}
 
-	public void setContact(Contact contact) {
+	public void setContact(ContactInfo contact) {
 		this.contact = contact;
 	}
 
-	public Address getAddress() {
+	public AddressInfo getAddress() {
 		return address;
 	}
 
-	public void setAddress(Address address) {
+	public void setAddress(AddressInfo address) {
 		this.address = address;
 	}
 

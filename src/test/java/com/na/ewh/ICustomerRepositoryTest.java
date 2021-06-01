@@ -8,9 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.na.ewh.model.Address;
-import com.na.ewh.model.Contact;
-import com.na.ewh.model.Customer;
+import com.na.ewh.model.AddressInfo;
+import com.na.ewh.model.ContactInfo;
+import com.na.ewh.model.CustomerInfo;
 import com.na.ewh.repositroy.ICustomerRepository;
 
 @RunWith(SpringRunner.class)
@@ -26,11 +26,11 @@ public class ICustomerRepositoryTest {
 
 	@Test
 	public void testSaveAndPrintCustomer() {
-		Contact contact = new Contact();
+		ContactInfo contact = new ContactInfo();
 
-		Address address = new Address();
+		AddressInfo address = new AddressInfo();
 
-		Customer customer = new Customer();
+		CustomerInfo customer = new CustomerInfo();
 		contact.setCustomer(customer);
 		address.setCustomer(customer);
 
@@ -42,7 +42,7 @@ public class ICustomerRepositoryTest {
 		customer.setAddress(address);
 		customer.setContact(contact);
 
-		Customer savedCustomer = customerRepository.save(customer);
+		CustomerInfo savedCustomer = customerRepository.save(customer);
 		assertThat(savedCustomer).isNotNull();
 		System.out.println(savedCustomer);
 	}

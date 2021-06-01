@@ -12,13 +12,13 @@ public class EwhUserDetails implements UserDetails {
 
 	private String userName;
 	private String password;
-	private boolean active;
+	private boolean enabled;
 	private List<GrantedAuthority> authorities;
 
 	public EwhUserDetails(User user) {
 		this.userName = user.getUserName();
 		this.password = user.getPassword();
-		this.active = user.isEnabled();
+		this.enabled = user.isEnabled();
 		this.authorities = Arrays.stream(user.getRoles().split(","))
 								 .map(SimpleGrantedAuthority::new)
 								 .collect(Collectors.toList());
@@ -39,7 +39,7 @@ public class EwhUserDetails implements UserDetails {
 	}
 	@Override
 	public boolean isAccountNonExpired() {
-		return false;
+		return true;
 	}
 	@Override
 	public boolean isAccountNonLocked() {
@@ -51,6 +51,6 @@ public class EwhUserDetails implements UserDetails {
 	}
 	@Override
 	public boolean isEnabled() {
-		return active;
+		return enabled;
 	}
 }

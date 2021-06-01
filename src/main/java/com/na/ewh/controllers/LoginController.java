@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.na.ewh.model.LoginForm;
 
-@Controller
+//@Controller
 public class LoginController {
 	private static final Logger log = LoggerFactory.getLogger(LoginController.class);
 	

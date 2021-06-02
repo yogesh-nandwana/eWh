@@ -42,9 +42,9 @@
   				 <label class="form-control-sm">ContactInfo:</label>
   				<div class="form-group">
   					<input type="email" name="email" class="form-control-sm" placeholder="Email">
-  					<span class="validationError" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">*{email} Error</span>
+  					<span class="validationError" th:if="${#fields.hasErrors('contactInfo.email')}" th:errors="*{contactInfo.email}">*{contactInfo.email} Error</span>
   					<input type="text" name="phoneNos" class="form-control-sm" placeholder="Phone(s)#">
-  					<span class="validationError" th:if="${#fields.hasErrors('phoneNos')}" th:errors="*{phoneNos}">*{phoneNos} Error</span>
+  					<span class="validationError" th:if="${#fields.hasErrors('contactInfo.phoneNos')}" th:errors="*{contactInfo.phoneNos}">*{contactInfo.phoneNos} Error</span>
   				</div>
   				<label class="form-control-sm">Address:</label>
   				<div class="form-group">
@@ -54,21 +54,22 @@
   				</div>
   				<div class="form-group">
   					<input type="text" name="city" class="form-control-sm" placeholder="City">
-  					<span class="validationError" th:if="${#fields.hasErrors('city')}" th:errors="*{city}">*{city} Error</span>
+  					<span class="validationError" th:if="${#fields.hasErrors('addressInfo.city')}" th:errors="*{addressInfo.city}">*{addressInfo.city} Error</span>
   					<input type="text" name="state" class="form-control-sm" placeholder="State">
-  					<span class="validationError" th:if="${#fields.hasErrors('state')}" th:errors="*{state}">*{state} Error</span>
+  					<span class="validationError" th:if="${#fields.hasErrors('addressInfo.state')}" th:errors="*{addressInfo.state}">*{addressInfo.state} Error</span>
   					<input type="text" name="country" class="form-control-sm" placeholder="Country">
-  					<span class="validationError" th:if="${#fields.hasErrors('country')}" th:errors="*{country}">*{country} Error</span>
+  					<span class="validationError" th:if="${#fields.hasErrors('addressInfo.country')}" th:errors="*{addressInfo.country}">*{addressInfo.country} Error</span>
   				</div>
   				<div class="form-group">
   					<input type="text" name="pincode" class="form-control-sm" placeholder="Pincode">
-  					<span class="validationError" th:if="${#fields.hasErrors('pincode')}" th:errors="*{pincode}">*{pincode} Error</span>
+  					<span class="validationError" th:if="${#fields.hasErrors('addressInfo.pincode')}" th:errors="*{addressInfo.pincode}">*{addressInfo.pincode} Error</span>
   				</div>
-  				
   				<div class="form-group">
   					<input type="text" class="form-control" name="remarks" placeholder="Remarks(If any)">
   				</div>
-  				<button th:text="#{addcustomer.submit}">submit customer</button>
+  				<div style="text-align: center;padding:5px">
+  					<button style="text-align: center;" th:text="#{addcustomer.submit}">submit customer</button>
+  				</div>  				
 			</form>
 		</div>
 	<div style="text-align: center;">

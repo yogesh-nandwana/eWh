@@ -21,21 +21,30 @@ public class ContactInfo {
 
 	@NotNull
 	private String phoneNos;
-
+	
+	public Long getId() {
+		return id;
+	}
 	public void setId(Long id) {
 		this.id = id;
 	}
-
+	public CustomerInfo getCustomer() {
+		return customer;
+	}
 	public void setCustomer(CustomerInfo customer) {
 		this.customer = customer;
 	}
-
+	public String getEmail() {
+		return email;
+	}
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
-	public void setMobileNo(String mobileNo) {
-		this.phoneNos = mobileNo;
+	public String getPhoneNos() {
+		return phoneNos;
+	}
+	public void setPhoneNos(String phoneNos) {
+		this.phoneNos = phoneNos;
 	}
 
 	@Override

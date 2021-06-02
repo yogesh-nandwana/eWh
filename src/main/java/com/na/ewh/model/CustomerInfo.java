@@ -5,6 +5,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import javax.persistence.*;
+import javax.validation.Valid;
 import javax.validation.constraints.*;
 
 @Entity
@@ -38,10 +39,10 @@ public class CustomerInfo {
 
 	private String remark;
 
-	@OneToOne(mappedBy = "customer")
+	@Valid @OneToOne(mappedBy = "customer")
 	private ContactInfo contactInfo;
 
-	@OneToOne(mappedBy = "customer")
+	@Valid @OneToOne(mappedBy = "customer")
 	private AddressInfo addressInfo;
 	
 	public Long getId() {

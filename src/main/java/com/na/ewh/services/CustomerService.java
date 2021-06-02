@@ -22,6 +22,7 @@ public class CustomerService {
 	}
 	
 	public void saveCustomer(CustomerInfo customer) {
-		log.info("Inside saveCustomer() for customer:",customer);
+		log.info("Inside saveCustomer() for customer:",customer.getName());
+		customerRepository.save(customer);
 	}
 }

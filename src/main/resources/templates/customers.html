@@ -33,10 +33,10 @@
 		  	    	<tr>
 		      		  <th scope="row" th:text="${cust.id}">Id</th>
 		      		  <td th:text="${cust.getName()}">Name</td>
-		      		  <td th:text="${cust.dob}">Dob</td>
-		      		  <td th:text="${cust.dor}">Dor</td>
-		      		  <td th:text="${cust.type}">Type</td>
-		      		  <td th:text="${cust.getAddress()}">Address</td>
+		      		  <td th:text="${cust.dateOfBirth}">Dob</td>
+		      		  <td th:text="${cust.registrationDate}">Dor</td>
+		      		  <td th:text="${cust.customerType}">Type</td>
+		      		  <td th:text="${cust.getAddressInfo()}">Address</td>
 		      		  <td><a th:href="@{|customers/${cust.id}/store|}" th:text=#{customer.store}>Store</a></td>	
 		      		  <td><a th:href="@{|customers/${cust.id}/evict|}" th:text=#{customer.evict}>Evict</a></td>		
 		      		  <td th:text="${cust.remark}">Remark</td>

@@ -10,6 +10,8 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.na.ewh.model.AddressInfo;
+import com.na.ewh.model.ContactInfo;
 import com.na.ewh.model.CustomerInfo;
 import com.na.ewh.services.CustomerService;
 
@@ -24,14 +26,21 @@ public class CustomerController {
 	public String getAllCustomers(Model m) {
 		Iterable<CustomerInfo> customers = customerService.getCustomers();
 		log.info("/customers request arrived");
+		
 		m.addAttribute("customers", customers);
+		
 		return "customers";
 	}
 	
 	@GetMapping("/addcustomer")
 	public String addCustomer(Model m) {
 		log.info("/addcustomer request arrived for userId");
-		m.addAttribute("customerInfo", new CustomerInfo());
+		
+		CustomerInfo customerInfo = new CustomerInfo();
+		customerInfo.setAddressInfo(new AddressInfo());
+		customerInfo.setContactInfo(new ContactInfo());
+		m.addAttribute("customerInfo",customerInfo);
+		
 		return "addcustomer";
 	}
 	
@@ -41,8 +50,9 @@ public class CustomerController {
 		if (errors.hasErrors()) {
 			return "addcustomer";
 		}
-		String firstName = customerInfo.getFirstName();
-		String lastName = customerInfo.getLastName();
+		customerInfo.setRegistrationDate(new java.sql.Date(System.currentTimeMillis()));
+		customerService.saveCustomer(customerInfo);
+		
 		return "redirect:/customers";
 	}
 }

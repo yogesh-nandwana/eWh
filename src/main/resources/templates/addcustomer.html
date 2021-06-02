@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"	xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml"	xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
 	<meta charset="utf-8">
 	<title th:text="#{home.title}">EWh Application1</title>
@@ -8,6 +8,10 @@
 	<link rel="stylesheet" th:href="@{css/ewh.css}">
 </head>
 <body class="container">
+    <div style="text-align: right;" sec:authorize="isAuthenticated()">
+        Welcome <span sec:authentication="name"></span> !&nbsp; 
+    	<a href="/logout" th:text="#{logout}">Logout1</a>
+    </div>
 	<div class="header">
 	    <img alt="Inventory image" th:src="@{images/inventory.jpg}" th:height="100px" align="middle">
 		<h1 th:text="#{addcustomer.add}">Add Customer1</h1>

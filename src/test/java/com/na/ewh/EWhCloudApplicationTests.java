@@ -7,20 +7,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import com.na.ewh.controllers.HomeController;
-import com.na.ewh.controllers.LoginController;
+import com.na.ewh.controllers.CustomerController;
 
-@SpringBootTest
-class EwhCloudApplicationTests {
+@SpringBootTest()
+class EWhCloudApplicationTests {
 	
 	@Autowired
 	HomeController homeController;
 	
 	@Autowired
-	LoginController loginController;
+	CustomerController customerController;
 	
 	@Test
 	void contextLoads() throws Exception {
 		assertThat(homeController).isNotNull();
-		assertThat(loginController).isNotNull();
+		assertThat(customerController).isNotNull();
 	}
 }

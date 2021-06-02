@@ -16,12 +16,12 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 import com.na.ewh.model.EwhUserDetails;
 import com.na.ewh.model.UserInfo;
-import com.na.ewh.repositroy.EwhUserDetailServiceRepo;
+import com.na.ewh.repositroy.IUserDetailServiceRepository;
 
 @EnableWebSecurity
 public class EwhSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Autowired
-	private EwhUserDetailServiceRepo userDetailRepo;
+	private IUserDetailServiceRepository userDetailRepo;
 	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {

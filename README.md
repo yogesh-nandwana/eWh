@@ -7,3 +7,4 @@
 * Access application via localhost:8080
 
 ### Pending TODO's
+* Need to fix breaking tests

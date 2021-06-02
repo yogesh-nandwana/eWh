@@ -18,13 +18,13 @@ public class CustomerInfo {
 	private String initial;
 
 	@NotNull
-	@Size(min = 5,max = 15,message = "First Name must be between 5 to 15 characters long.")
+	@Size(min = 3,max = 10,message = "First Name must be between 3 to 10 characters long.")
 	private String firstName;
 
 	private String middleName;
 
 	@NotNull
-	@Size(min = 5,max = 15,message = "Last Name must be between 5 to 15 characters long.")
+	@Size(min = 5,max = 10,message = "Last Name must be between 3 to 10 characters long.")
 	private String lastName;
 
 	@NotNull

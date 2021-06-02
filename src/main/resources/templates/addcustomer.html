@@ -9,7 +9,7 @@
 </head>
 <body class="container">
     <div style="text-align: right;" sec:authorize="isAuthenticated()">
-        Welcome <span sec:authentication="name"></span> !&nbsp; 
+        Welcome <span style="color:maroon;" sec:authentication="name"></span> !&nbsp; 
     	<a href="/logout" th:text="#{logout}">Logout1</a>
     	<div sec:authorize="hasRole('ADMIN')">
      		<a href="/h2-console" th:text="#{db}">h2-console</a>
@@ -30,11 +30,11 @@
   						<option value="MRS">Mrs</option>
   						<option value="MISS">Miss</option>
   					</select>
-  					<input type="text" class="form-control-sm" name="firstName" placeholder="First name">
+  					<input type="text" class="form-control-sm" name="firstName" placeholder="*First name">
   					<span class="validationError" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">*{firstName} Error</span>
   					<input type="text" class="form-control-sm" name="middleName" placeholder="Middle name">
   					<span class="validationError" th:if="${#fields.hasErrors('middleName')}" th:errors="*{middleName}">*{middleName} Error</span>
-  					<input type="text" class="form-control-sm" name="lastName" placeholder="Last name">
+  					<input type="text" class="form-control-sm" name="lastName" placeholder="*Last name">
   					<span class="validationError" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">*{lastName} Error</span>
     			</div>
   				<div class="form-group">
@@ -42,15 +42,15 @@
   						<option value="TRADER">Trader</option>
   						<option value="FARMER">Farmer</option>
   					</select>
-  					<span>Birthdate:</span>
-  					<input type="date" name="dateOfBirth" id="dateOfBirth" class="form-control-sm" placeholder="Birthday">
+  					<span>*Birthdate:</span>
+  					<input type="date" name="dateOfBirth" id="dateOfBirth" class="form-control-sm" placeholder="*Birthday">
   					<span class="validationError" th:if="${#fields.hasErrors('dateOfBirth')}" th:errors="*{dateOfBirth}">*{dateOfBirth} Error</span>
   				</div>
   				 <label class="form-control-sm">ContactInfo:</label>
   				<div class="form-group">
-  					<input type="email" name="contactInfo.email" class="form-control-sm" placeholder="Email">
+  					<input type="email" name="contactInfo.email" class="form-control-sm" placeholder="*Email">
   					<span class="validationError" th:if="${#fields.hasErrors('contactInfo.email')}" th:errors="*{contactInfo.email}">*{contactInfo.email} Error</span>
-  					<input type="text" name="contactInfo.phoneNos" class="form-control-sm" placeholder="Phone(s)#">
+  					<input type="text" name="contactInfo.phoneNos" class="form-control-sm" placeholder="*Phone(s)#">
   					<span class="validationError" th:if="${#fields.hasErrors('contactInfo.phoneNos')}" th:errors="*{contactInfo.phoneNos}">*{contactInfo.phoneNos} Error</span>
   				</div>
   				<label class="form-control-sm">Address:</label>
@@ -60,15 +60,15 @@
   					<input type="text" name="addressInfo.landmark" class="form-control-sm" placeholder="Landmark(If any)">
   				</div>
   				<div class="form-group">
-  					<input type="text" name="addressInfo.city" class="form-control-sm" placeholder="City">
+  					<input type="text" name="addressInfo.city" class="form-control-sm" placeholder="*City">
   					<span class="validationError" th:if="${#fields.hasErrors('addressInfo.city')}" th:errors="*{addressInfo.city}">*{addressInfo.city} Error</span>
-  					<input type="text" name="addressInfo.state" class="form-control-sm" placeholder="State">
+  					<input type="text" name="addressInfo.state" class="form-control-sm" placeholder="*State">
   					<span class="validationError" th:if="${#fields.hasErrors('addressInfo.state')}" th:errors="*{addressInfo.state}">*{addressInfo.state} Error</span>
-  					<input type="text" name="addressInfo.country" class="form-control-sm" placeholder="Country">
+  					<input type="text" name="addressInfo.country" class="form-control-sm" placeholder="*Country">
   					<span class="validationError" th:if="${#fields.hasErrors('addressInfo.country')}" th:errors="*{addressInfo.country}">*{addressInfo.country} Error</span>
   				</div>
   				<div class="form-group">
-  					<input type="text" name="addressInfo.pincode" class="form-control-sm" placeholder="Pincode">
+  					<input type="text" name="addressInfo.pincode" class="form-control-sm" placeholder="*Pincode">
   					<span class="validationError" th:if="${#fields.hasErrors('addressInfo.pincode')}" th:errors="*{addressInfo.pincode}">*{addressInfo.pincode} Error</span>
   				</div>
   				<div class="form-group">

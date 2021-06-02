@@ -8,7 +8,7 @@
 </head>
 <body class="container">
     <div style="text-align: right;" sec:authorize="isAuthenticated()">
-        Welcome <span sec:authentication="name"></span> !&nbsp; 
+        Welcome <span style="color:maroon;" sec:authentication="name"></span> !&nbsp; 
     	<a href="/logout" th:text="#{logout}">Logout1</a>
     	<div sec:authorize="hasRole('ADMIN')">
      		<a href="/h2-console" th:text="#{db}">h2-console</a>
@@ -27,6 +27,7 @@
 			      		<th scope="col" th:text="#{customer.dor}">DOR1</th>
 			      		<th scope="col" th:text="#{customer.type}">Type1</th>
 			      		<th scope="col" th:text="#{customer.address}">Address1</th>
+			      		<th scope="col" th:text="#{customer.contact}">Contact1</th>
 			      		<th scope="col" th:text="#{customer.store}">Store1</th>
 			      		<th scope="col" th:text="#{customer.evict}">Evict1</th>
 			      		<th scope="col" th:text="#{customer.remark}">Remark1</th>
@@ -40,6 +41,7 @@
 		      		  <td th:text="${cust.registrationDate}">Dor</td>
 		      		  <td th:text="${cust.customerType}">Type</td>
 		      		  <td th:text="${cust.getAddressInfo()}">Address</td>
+		      		  <td th:text="${cust.getContactInfo()}">Contact</td>
 		      		  <td><a th:href="@{|customers/${cust.id}/store|}" th:text=#{customer.store}>Store</a></td>	
 		      		  <td><a th:href="@{|customers/${cust.id}/evict|}" th:text=#{customer.evict}>Evict</a></td>		
 		      		  <td th:text="${cust.remark}">Remark</td>

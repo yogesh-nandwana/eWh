@@ -11,6 +11,9 @@
     <div style="text-align: right;" sec:authorize="isAuthenticated()">
         Welcome <span sec:authentication="name"></span> !&nbsp; 
     	<a href="/logout" th:text="#{logout}">Logout1</a>
+    	<div sec:authorize="hasRole('ADMIN')">
+     		<a href="/h2-console" th:text="#{db}">h2-console</a>
+    	</div>
     </div>
 	<div class="header">
 	    <img alt="Inventory image" th:src="@{images/inventory.jpg}" th:height="100px" align="middle">
@@ -45,27 +48,27 @@
   				</div>
   				 <label class="form-control-sm">ContactInfo:</label>
   				<div class="form-group">
-  					<input type="email" name="email" class="form-control-sm" placeholder="Email">
+  					<input type="email" name="contactInfo.email" class="form-control-sm" placeholder="Email">
   					<span class="validationError" th:if="${#fields.hasErrors('contactInfo.email')}" th:errors="*{contactInfo.email}">*{contactInfo.email} Error</span>
-  					<input type="text" name="phoneNos" class="form-control-sm" placeholder="Phone(s)#">
+  					<input type="text" name="contactInfo.phoneNos" class="form-control-sm" placeholder="Phone(s)#">
   					<span class="validationError" th:if="${#fields.hasErrors('contactInfo.phoneNos')}" th:errors="*{contactInfo.phoneNos}">*{contactInfo.phoneNos} Error</span>
   				</div>
   				<label class="form-control-sm">Address:</label>
   				<div class="form-group">
-  					<input type="text" name="houseNo" class="form-control-sm" placeholder="House#">
-  					<input type="text" name="street" class="form-control-sm" placeholder="Street">
-  					<input type="text" name="landmark" class="form-control-sm" placeholder="Landmark(If any)">
+  					<input type="text" name="addressInfo.houseNo" class="form-control-sm" placeholder="House#">
+  					<input type="text" name="addressInfo.street" class="form-control-sm" placeholder="Street">
+  					<input type="text" name="addressInfo.landmark" class="form-control-sm" placeholder="Landmark(If any)">
   				</div>
   				<div class="form-group">
-  					<input type="text" name="city" class="form-control-sm" placeholder="City">
+  					<input type="text" name="addressInfo.city" class="form-control-sm" placeholder="City">
   					<span class="validationError" th:if="${#fields.hasErrors('addressInfo.city')}" th:errors="*{addressInfo.city}">*{addressInfo.city} Error</span>
-  					<input type="text" name="state" class="form-control-sm" placeholder="State">
+  					<input type="text" name="addressInfo.state" class="form-control-sm" placeholder="State">
   					<span class="validationError" th:if="${#fields.hasErrors('addressInfo.state')}" th:errors="*{addressInfo.state}">*{addressInfo.state} Error</span>
-  					<input type="text" name="country" class="form-control-sm" placeholder="Country">
+  					<input type="text" name="addressInfo.country" class="form-control-sm" placeholder="Country">
   					<span class="validationError" th:if="${#fields.hasErrors('addressInfo.country')}" th:errors="*{addressInfo.country}">*{addressInfo.country} Error</span>
   				</div>
   				<div class="form-group">
-  					<input type="text" name="pincode" class="form-control-sm" placeholder="Pincode">
+  					<input type="text" name="addressInfo.pincode" class="form-control-sm" placeholder="Pincode">
   					<span class="validationError" th:if="${#fields.hasErrors('addressInfo.pincode')}" th:errors="*{addressInfo.pincode}">*{addressInfo.pincode} Error</span>
   				</div>
   				<div class="form-group">

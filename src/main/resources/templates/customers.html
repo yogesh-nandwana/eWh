@@ -10,6 +10,9 @@
     <div style="text-align: right;" sec:authorize="isAuthenticated()">
         Welcome <span sec:authentication="name"></span> !&nbsp; 
     	<a href="/logout" th:text="#{logout}">Logout1</a>
+    	<div sec:authorize="hasRole('ADMIN')">
+     		<a href="/h2-console" th:text="#{db}">h2-console</a>
+    	</div>
     </div>
 	<div style="text-align: center;padding-top: 20px">
 	    <img alt="Inventory image" th:src="@{images/inventory.jpg}" th:height="100px" align="middle">

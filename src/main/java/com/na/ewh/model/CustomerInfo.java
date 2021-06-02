@@ -37,13 +37,13 @@ public class CustomerInfo {
 	@Column(name="REG_DATE")
 	private Date registrationDate;
 
-	private String remark;
-
-	@Valid @OneToOne(mappedBy = "customer")
+	@Valid @OneToOne(mappedBy = "customer",cascade = CascadeType.ALL)
 	private ContactInfo contactInfo;
 
-	@Valid @OneToOne(mappedBy = "customer")
+	@Valid @OneToOne(mappedBy = "customer",cascade = CascadeType.ALL)
 	private AddressInfo addressInfo;
+	
+	private String remark;
 	
 	public Long getId() {
 		return id;

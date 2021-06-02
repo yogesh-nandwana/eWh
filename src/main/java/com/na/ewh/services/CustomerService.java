@@ -23,6 +23,9 @@ public class CustomerService {
 	
 	public void saveCustomer(CustomerInfo customer) {
 		log.info("Inside saveCustomer() for customer:",customer.getName());
+		customer.getAddressInfo().setCustomer(customer);
+		customer.getContactInfo().setCustomer(customer);
 		customerRepository.save(customer);
+		log.info("Customer details saved for:",customer.getName());
 	}
 }

@@ -37,8 +37,13 @@ public class CustomerController {
 		log.info("/addcustomer request arrived for userId");
 		
 		CustomerInfo customerInfo = new CustomerInfo();
-		customerInfo.setAddressInfo(new AddressInfo());
-		customerInfo.setContactInfo(new ContactInfo());
+		AddressInfo addressInfo = new AddressInfo();
+		
+		ContactInfo contactInfo = new ContactInfo();
+		
+		customerInfo.setAddressInfo(addressInfo);
+		customerInfo.setContactInfo(contactInfo);
+		
 		m.addAttribute("customerInfo",customerInfo);
 		
 		return "addcustomer";

@@ -39,8 +39,8 @@ public class ICustomerRepositoryTest {
 		customer.setFirstName("Mohan");
 		customer.setMiddleName("Lal");
 		customer.setLastName("Bagwaan");
-		customer.setAddress(address);
-		customer.setContact(contact);
+		customer.setAddressInfo(address);
+		customer.setContactInfo(contact);
 
 		CustomerInfo savedCustomer = customerRepository.save(customer);
 		assertThat(savedCustomer).isNotNull();

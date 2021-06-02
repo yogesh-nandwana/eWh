@@ -13,7 +13,10 @@
 		<h1 th:text="#{addcustomer.add}">Add Customer1</h1>
 	</div>
 	<div class="form_class">
-			<form>
+			<form method="POST" action="/savecustomer" th:object="${customerInfo}">
+				<div th:if="${#fields.hasErrors()}">
+ 					<span class="validationError">Please correct the problems below and resubmit.</span>
+ 				</div>
 				<div class="form-group">
   					<select name="Initial" class="form-control-sm">
   						<option value="MR">Mr</option>
@@ -21,22 +24,27 @@
   						<option value="MISS">Miss</option>
   					</select>
   					<input type="text" class="form-control-sm" name="firstName" placeholder="First name">
+  					<span class="validationError" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">*{firstName} Error</span>
   					<input type="text" class="form-control-sm" name="middleName" placeholder="Middle name">
+  					<span class="validationError" th:if="${#fields.hasErrors('middleName')}" th:errors="*{middleName}">*{middleName} Error</span>
   					<input type="text" class="form-control-sm" name="lastName" placeholder="Last name">
+  					<span class="validationError" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">*{lastName} Error</span>
     			</div>
   				<div class="form-group">
-  					<select name="type" class="form-control-sm">
+  					<select name="customerType" class="form-control-sm">
   						<option value="TRADER">Trader</option>
   						<option value="FARMER">Farmer</option>
   					</select>
   					<span>Birthdate:</span>
-  					<input type="date" name="dob" id="dob" class="form-control-sm" placeholder="Birthday">
+  					<input type="date" name="dateOfBirth" id="dateOfBirth" class="form-control-sm" placeholder="Birthday">
+  					<span class="validationError" th:if="${#fields.hasErrors('dateOfBirth')}" th:errors="*{dateOfBirth}">*{dateOfBirth} Error</span>
   				</div>
   				 <label class="form-control-sm">ContactInfo:</label>
   				<div class="form-group">
   					<input type="email" name="email" class="form-control-sm" placeholder="Email">
-  					<input type="email" name="landlineNo" class="form-control-sm" placeholder="Landline#">
-  					<input type="email" name="mobileNo" class="form-control-sm" placeholder="MobileNo">
+  					<span class="validationError" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">*{email} Error</span>
+  					<input type="text" name="phoneNos" class="form-control-sm" placeholder="Phone(s)#">
+  					<span class="validationError" th:if="${#fields.hasErrors('phoneNos')}" th:errors="*{phoneNos}">*{phoneNos} Error</span>
   				</div>
   				<label class="form-control-sm">Address:</label>
   				<div class="form-group">
@@ -46,21 +54,23 @@
   				</div>
   				<div class="form-group">
   					<input type="text" name="city" class="form-control-sm" placeholder="City">
+  					<span class="validationError" th:if="${#fields.hasErrors('city')}" th:errors="*{city}">*{city} Error</span>
   					<input type="text" name="state" class="form-control-sm" placeholder="State">
+  					<span class="validationError" th:if="${#fields.hasErrors('state')}" th:errors="*{state}">*{state} Error</span>
   					<input type="text" name="country" class="form-control-sm" placeholder="Country">
+  					<span class="validationError" th:if="${#fields.hasErrors('country')}" th:errors="*{country}">*{country} Error</span>
   				</div>
   				<div class="form-group">
   					<input type="text" name="pincode" class="form-control-sm" placeholder="Pincode">
+  					<span class="validationError" th:if="${#fields.hasErrors('pincode')}" th:errors="*{pincode}">*{pincode} Error</span>
   				</div>
   				
   				<div class="form-group">
   					<input type="text" class="form-control" name="remarks" placeholder="Remarks(If any)">
   				</div>
+  				<button th:text="#{addcustomer.submit}">submit customer</button>
 			</form>
 		</div>
-	<div style="text-align: center;padding-top: 60px">
-		<button th:text="#{addcustomer.submit}">submit customer</button>
-	</div>
 	<div style="text-align: center;">
 		<p class="mt-5 mb-3 text-muted">Copyright &copy; 2019-2020</p>
 	</div>

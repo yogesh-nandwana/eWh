@@ -39,10 +39,10 @@ public class CustomerInfo {
 	private String remark;
 
 	@OneToOne(mappedBy = "customer")
-	private ContactInfo contact;
+	private ContactInfo contactInfo;
 
 	@OneToOne(mappedBy = "customer")
-	private AddressInfo address;
+	private AddressInfo addressInfo;
 	
 	public Long getId() {
 		return id;
@@ -116,22 +116,22 @@ public class CustomerInfo {
 		this.remark = remark;
 	}
 
-	public ContactInfo getContact() {
-		return contact;
+	public ContactInfo getContactInfo() {
+		return contactInfo;
 	}
 
-	public void setContact(ContactInfo contact) {
-		this.contact = contact;
+	public void setContactInfo(ContactInfo contactInfo) {
+		this.contactInfo = contactInfo;
 	}
 
-	public AddressInfo getAddress() {
-		return address;
+	public AddressInfo getAddressInfo() {
+		return addressInfo;
 	}
 
-	public void setAddress(AddressInfo address) {
-		this.address = address;
+	public void setAddressInfo(AddressInfo addressInfo) {
+		this.addressInfo = addressInfo;
 	}
-
+	
 	public String getName() {
 		return Stream.of(firstName,middleName,lastName).filter(str -> str!=null && !str.isEmpty()).collect(Collectors.joining(" "));
 	}

@@ -16,6 +16,7 @@ public class ContactInfo {
 	private CustomerInfo customer;
 
 	@Email
+	@NotNull
 	private String email;
 
 	@NotNull

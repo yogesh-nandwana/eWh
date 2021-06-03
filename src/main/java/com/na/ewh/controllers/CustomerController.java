@@ -7,12 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
-import com.na.ewh.model.AddressInfo;
-import com.na.ewh.model.ContactInfo;
-import com.na.ewh.model.CustomerInfo;
+import com.na.ewh.model.*;
 import com.na.ewh.services.CustomerService;
 
 @Controller
@@ -30,6 +27,18 @@ public class CustomerController {
 		m.addAttribute("customers", customers);
 		
 		return "customers";
+	}
+	
+	@GetMapping("/customers/delete/{id}")
+	public String deleteCustomer(@PathVariable final Long id) {
+		customerService.deleteCustomer(id);
+		return "redirect:/customers";
+	}
+	
+	@PutMapping("/customers/update/")
+	public String updateCustomer(@RequestBody final CustomerInfo customer) {
+		customerService.saveCustomer(customer);
+		return "redirect:/customers";
 	}
 	
 	@GetMapping("/addcustomer")

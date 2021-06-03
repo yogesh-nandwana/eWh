@@ -21,7 +21,6 @@
 			<table class="table">
 		  		<thead>
 		    		<tr>
-			      		<th scope="col" th:text="#{customer.id}">Id1</th>
 			      		<th scope="col" th:text="#{customer.name}">Name1</th>
 			      		<th scope="col" th:text="#{customer.dob}">DOB1</th>
 			      		<th scope="col" th:text="#{customer.dor}">DOR1</th>
@@ -30,12 +29,12 @@
 			      		<th scope="col" th:text="#{customer.contact}">Contact1</th>
 			      		<th scope="col" th:text="#{customer.store}">Store1</th>
 			      		<th scope="col" th:text="#{customer.evict}">Evict1</th>
-			      		<th scope="col" th:text="#{customer.remark}">Remark1</th>
+			      		<th scope="col" th:text="#{customer.update}">Update1</th>
+			      		<th scope="col" th:text="#{customer.delete1}">Delete1</th>
 		    		</tr>
 		 	  	</thead>
 		  	  	<tbody th:each="cust : ${customers}">
 		  	    	<tr>
-		      		  <th scope="row" th:text="${cust.id}">Id</th>
 		      		  <td th:text="${cust.getName()}">Name</td>
 		      		  <td th:text="${cust.dateOfBirth}">Dob</td>
 		      		  <td th:text="${cust.registrationDate}">Dor</td>
@@ -43,8 +42,9 @@
 		      		  <td th:text="${cust.getAddressInfo()}">Address</td>
 		      		  <td th:text="${cust.getContactInfo()}">Contact</td>
 		      		  <td><a th:href="@{|customers/${cust.id}/store|}" th:text=#{customer.store}>Store</a></td>	
-		      		  <td><a th:href="@{|customers/${cust.id}/evict|}" th:text=#{customer.evict}>Evict</a></td>		
-		      		  <td th:text="${cust.remark}">Remark</td>
+		      		  <td><a th:href="@{|customers/${cust.id}/evict|}" th:text=#{customer.evict}>Evict</a></td>	
+		      		  <td><a style="color:green;" th:href="@{|customers/update/${cust.id}|}" th:text=#{customer.update}>Update</a></td>
+		      		  <td><a style="color:red;" th:href="@{|customers/delete/${cust.id}|}" th:text=#{customer.delete}>Delete</a></td>	
 		    		</tr>	
 		  		</tbody>
 			</table>

@@ -14,16 +14,16 @@ public class CustomerInfo {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 
-	@NotNull
+	@NotBlank
 	private String initial;
 
-	@NotNull
+	@NotBlank
 	@Size(min = 3,max = 10,message = "First Name must be between 3 to 10 characters long.")
 	private String firstName;
 
 	private String middleName;
 
-	@NotNull
+	@NotBlank
 	@Size(min = 5,max = 10,message = "Last Name must be between 3 to 10 characters long.")
 	private String lastName;
 
@@ -42,8 +42,6 @@ public class CustomerInfo {
 
 	@Valid @OneToOne(mappedBy = "customer",cascade = CascadeType.ALL)
 	private AddressInfo addressInfo;
-	
-	private String remark;
 	
 	public Long getId() {
 		return id;
@@ -107,14 +105,6 @@ public class CustomerInfo {
 
 	public void setRegistrationDate(Date registrationDate) {
 		this.registrationDate = registrationDate;
-	}
-
-	public String getRemark() {
-		return remark;
-	}
-
-	public void setRemark(String remark) {
-		this.remark = remark;
 	}
 
 	public ContactInfo getContactInfo() {

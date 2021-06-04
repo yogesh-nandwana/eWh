@@ -43,8 +43,8 @@
 		      		  <td th:text="${cust.getContactInfo()}">Contact</td>
 		      		  <td><a th:href="@{|customers/${cust.id}/store|}" th:text=#{customer.store}>Store</a></td>	
 		      		  <td><a th:href="@{|customers/${cust.id}/evict|}" th:text=#{customer.evict}>Evict</a></td>	
-		      		  <td><a style="color:green;" th:href="@{|customers/update/${cust.id}|}" th:text=#{customer.update}>Update</a></td>
-		      		  <td><a style="color:red;" th:href="@{|customers/delete/${cust.id}|}" th:text=#{customer.delete}>Delete</a></td>	
+		      		  <td><a title="Update" style="color:green;" th:href="@{|customers/update/${cust.id}|}" th:text=#{customer.update}>Update</a></td>
+		      		  <td><a title="Delete" style="color:red;" th:href="@{|customers/delete/${cust.id}|}" th:text=#{customer.delete}>Delete</a></td>	
 		    		</tr>	
 		  		</tbody>
 			</table>

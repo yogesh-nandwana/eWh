@@ -35,10 +35,11 @@ public class CustomerController {
 		return "redirect:/customers";
 	}
 	
-	@PutMapping("/customers/update/")
-	public String updateCustomer(@RequestBody final CustomerInfo customer) {
-		customerService.saveCustomer(customer);
-		return "redirect:/customers";
+	@GetMapping("/customers/update/{id}")
+	public String updateCustomer(@PathVariable final Long id,Model m) {
+		CustomerInfo cust = customerService.findCustomer(id);
+		m.addAttribute("customerInfo", cust);
+		return "redirect:/addcustomer";
 	}
 	
 	@GetMapping("/addcustomer")

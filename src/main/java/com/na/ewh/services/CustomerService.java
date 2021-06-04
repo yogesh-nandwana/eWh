@@ -1,5 +1,7 @@
 package com.na.ewh.services;
 
+import java.util.Optional;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,5 +38,10 @@ public class CustomerService {
 		
 		customerRepository.deleteById(id);
 		log.info("Customer deleted successfully");
+	}
+
+	public CustomerInfo findCustomer(Long id) {
+		Optional<CustomerInfo> customer = customerRepository.findById(id);
+		return customer.orElse(null);
 	}
 }

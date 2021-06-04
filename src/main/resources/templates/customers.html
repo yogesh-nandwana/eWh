@@ -6,6 +6,7 @@
 	<link rel="shortcut icon" type="image/jpg" th:href="@{images/inventory.jpg}"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="stylesheet" th:href="@{css/bootstrap.min.css}">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body class="container">
     <div style="text-align: right;" sec:authorize="isAuthenticated()">
@@ -44,8 +45,8 @@
 		      		  <td th:text="${cust.getContactInfo()}">Contact</td>
 		      		  <td><a th:href="@{|customers/${cust.id}/store|}" th:text=#{customer.store}>Store</a></td>	
 		      		  <td><a th:href="@{|customers/${cust.id}/evict|}" th:text=#{customer.evict}>Evict</a></td>	
-		      		  <td><a title="Update" style="color:green;" th:href="@{|customers/update/${cust.id}|}" th:text=#{customer.update}>Update</a></td>
-		      		  <td><a title="Delete" style="color:red;" th:href="@{|customers/delete/${cust.id}|}" th:text=#{customer.delete}>Delete</a></td>	
+		      		  <td><a title="Update" style="color:green;" th:href="@{|customers/update/${cust.id}|}"><i class="fa fa-pencil fa-fw"></i></a></td>
+		      		  <td><a title="Delete" style="color:red;" th:href="@{|customers/delete/${cust.id}|}"><i class="fa fa-trash fa-fw"></i></a></td>	
 		    		</tr>	
 		  		</tbody>
 			</table>

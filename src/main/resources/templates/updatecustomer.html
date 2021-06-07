@@ -46,7 +46,7 @@
 	  						<option value="FARMER">Farmer</option>
 	  					</select>
 	  					<span>*Birthdate:</span>
-	  					<input type="date" name="dateOfBirth" id="dateOfBirth" value="1947-08-15" class="form-control-sm" placeholder="*Birthday">
+	  					<input type="date" name="dateOfBirth" id="dateOfBirth" class="form-control-sm" placeholder="*Birthday">
 	  					<span class="validationError" th:if="${#fields.hasErrors('dateOfBirth')}" th:errors="*{dateOfBirth}">*{dateOfBirth} Error</span>
 	  				</div>
   				</fieldset>

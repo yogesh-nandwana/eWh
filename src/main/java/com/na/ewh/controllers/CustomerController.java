@@ -19,7 +19,7 @@ public class CustomerController {
 	private static final Logger log = LoggerFactory.getLogger(CustomerController.class);
 	
 	@Autowired
-	CustomerService customerService;
+	private CustomerService customerService;
 	
 	@GetMapping("/customers")
 	public String getAllCustomers(Model m,Principal principal) {

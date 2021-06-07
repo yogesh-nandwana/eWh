@@ -43,6 +43,8 @@ public class CustomerInfo {
 	@Valid @OneToOne(mappedBy = "customer",cascade = CascadeType.ALL)
 	private AddressInfo addressInfo;
 	
+	private String remarks;
+	
 	public Long getId() {
 		return id;
 	}
@@ -123,6 +125,14 @@ public class CustomerInfo {
 		this.addressInfo = addressInfo;
 	}
 	
+	public String getRemarks() {
+		return remarks;
+	}
+
+	public void setRemarks(String remarks) {
+		this.remarks = remarks;
+	}
+
 	public String getName() {
 		return Stream.of(firstName,middleName,lastName).filter(str -> str!=null && !str.isEmpty()).collect(Collectors.joining(" "));
 	}

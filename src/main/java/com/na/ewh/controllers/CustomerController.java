@@ -1,5 +1,7 @@
 package com.na.ewh.controllers;
 
+import java.security.Principal;
+
 import javax.validation.Valid;
 
 import org.slf4j.*;
@@ -20,9 +22,9 @@ public class CustomerController {
 	CustomerService customerService;
 	
 	@GetMapping("/customers")
-	public String getAllCustomers(Model m) {
+	public String getAllCustomers(Model m,Principal principal) {
 		Iterable<CustomerInfo> customers = customerService.getCustomers();
-		log.info("/customers request arrived");
+		log.info("/customers request arrived by user:{}",principal.getName());
 		
 		m.addAttribute("customers", customers);
 		
@@ -30,8 +32,8 @@ public class CustomerController {
 	}
 	
 	@GetMapping("/addcustomer")
-	public String showAddCustomerForm(Model m) {
-		log.info("/addcustomer request arrived for userId");
+	public String showAddCustomerForm(Model m,Principal principal) {
+		log.info("/addcustomer request arrived by user:{}",principal.getName());
 		CustomerInfo customerInfo = new CustomerInfo();
 		AddressInfo addressInfo = new AddressInfo();
 		
@@ -45,8 +47,8 @@ public class CustomerController {
 	}
 	
 	@PostMapping("/savecustomer")
-	public String saveCustomer(@Valid CustomerInfo customerInfo,Errors errors) {
-		log.info("/savecustomer request arrived");
+	public String saveCustomer(@Valid CustomerInfo customerInfo,Errors errors,Principal principal) {
+		log.info("/savecustomer request arrived by user:{}",principal.getName());
 		if (errors.hasErrors()) {
 			return "addcustomer";
 		}
@@ -57,16 +59,16 @@ public class CustomerController {
 	}
 	
 	@GetMapping("/customers/update/{id}")
-	public String showUpdateCustomerForm(@PathVariable final Long id,Model m) {
-		log.info("/customers/update request arrived by userId");
+	public String showUpdateCustomerForm(@PathVariable final Long id,Model m,Principal principal) {
+		log.info("/customers/update request arrived by by user:{}",principal.getName());
 		CustomerInfo customerInfo = customerService.findCustomer(id);
 		m.addAttribute("customerInfo", customerInfo);
 		return "updatecustomer";
 	}
 	
 	@PostMapping("/updatecustomer")
-	public String updateCustomer(@Valid CustomerInfo customerInfo,Errors errors) {
-		log.info("/updatecustomer request arrived");
+	public String updateCustomer(@Valid CustomerInfo customerInfo,Errors errors,Principal principal) {
+		log.info("/updatecustomer request arrived by user:{}",principal.getName());
 		if (errors.hasErrors()) {
 			return "updatecustomer";
 		}
@@ -76,7 +78,8 @@ public class CustomerController {
 	}
 	
 	@GetMapping("/customers/delete/{id}")
-	public String deleteCustomer(@PathVariable final Long id) {
+	public String deleteCustomer(@PathVariable final Long id,Principal principal) {
+		log.info("delete customer request arrived by user:{}",principal.getName());
 		customerService.deleteCustomer(id);
 		return "redirect:/customers";
 	}

@@ -29,23 +29,9 @@ public class CustomerController {
 		return "customers";
 	}
 	
-	@GetMapping("/customers/delete/{id}")
-	public String deleteCustomer(@PathVariable final Long id) {
-		customerService.deleteCustomer(id);
-		return "redirect:/customers";
-	}
-	
-	@GetMapping("/customers/update/{id}")
-	public String updateCustomer(@PathVariable final Long id,Model m) {
-		CustomerInfo cust = customerService.findCustomer(id);
-		m.addAttribute("customerInfo", cust);
-		return "redirect:/addcustomer";
-	}
-	
 	@GetMapping("/addcustomer")
 	public String addCustomer(Model m) {
 		log.info("/addcustomer request arrived for userId");
-		
 		CustomerInfo customerInfo = new CustomerInfo();
 		AddressInfo addressInfo = new AddressInfo();
 		
@@ -55,12 +41,11 @@ public class CustomerController {
 		customerInfo.setContactInfo(contactInfo);
 		
 		m.addAttribute("customerInfo",customerInfo);
-		
 		return "addcustomer";
 	}
 	
 	@PostMapping("/savecustomer")
-	public String addCustomer(@Valid CustomerInfo customerInfo,Errors errors) {
+	public String saveCustomer(@Valid CustomerInfo customerInfo,Errors errors) {
 		log.info("/savecustomer request arrived");
 		if (errors.hasErrors()) {
 			return "addcustomer";
@@ -68,6 +53,31 @@ public class CustomerController {
 		customerInfo.setRegistrationDate(new java.sql.Date(System.currentTimeMillis()));
 		customerService.saveCustomer(customerInfo);
 		
+		return "redirect:/customers";
+	}
+	
+	@GetMapping("/customers/update/{id}")
+	public String updateCustomer(@PathVariable final Long id,Model m) {
+		log.info("/customers/update request arrived by userId");
+		CustomerInfo customerInfo = customerService.findCustomer(id);
+		m.addAttribute("customerInfo", customerInfo);
+		return "updatecustomer";
+	}
+	
+	@PostMapping("/updatecustomer")
+	public String updateCustomer(@Valid CustomerInfo customerInfo,Errors errors) {
+		log.info("/updatecustomer request arrived");
+		if (errors.hasErrors()) {
+			return "updatecustomer";
+		}
+		customerService.saveCustomer(customerInfo);
+		
+		return "redirect:/customers";
+	}
+	
+	@GetMapping("/customers/delete/{id}")
+	public String deleteCustomer(@PathVariable final Long id) {
+		customerService.deleteCustomer(id);
 		return "redirect:/customers";
 	}
 }

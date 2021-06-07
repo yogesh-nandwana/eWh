@@ -17,10 +17,10 @@
     </div>
 	<div class="header">
 	    <img alt="Inventory image" th:src="@{images/inventory.jpg}" th:height="100px" align="middle">
-		<h1 th:text="#{addcustomer.heading}">Add Customer1</h1>
+		<h1 th:text="#{updatecustomer.heading}">Update Customer1</h1>
 	</div>
 	<div class="form_class">
-			<form method="POST" action="/savecustomer" th:object="${customerInfo}">
+			<form method="POST" action="/updatecustomer" th:object="${customerInfo}">
 				<div th:if="${#fields.hasErrors()}">
  					<span class="validationError">Please correct the problems below and resubmit.</span>
  				</div>
@@ -32,11 +32,11 @@
 	  						<option value="MRS">Mrs</option>
 	  						<option value="MISS">Miss</option>
 	  					</select>
-	  					<input type="text" class="form-control-sm" name="firstName" placeholder="*First name" value="testval">
+	  					<input type="text" class="form-control-sm" name="firstName" placeholder="*First name">
 	  					<span class="validationError" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">*{firstName} Error</span>
 	  					<input type="text" class="form-control-sm" name="middleName" placeholder="Middle name">
 	  					<span class="validationError" th:if="${#fields.hasErrors('middleName')}" th:errors="*{middleName}">*{middleName} Error</span>
-	  					<input type="text" class="form-control-sm" name="lastName" placeholder="*Last name" value="testval">
+	  					<input type="text" class="form-control-sm" name="lastName" placeholder="*Last name">
 	  					<span class="validationError" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">*{lastName} Error</span>
 	    			</div>
 	  				<div class="form-group">
@@ -53,9 +53,9 @@
   				<fieldset class="border p-2">
   				 	<legend class="col-form-label col-sm-2 pt-0">ContactInfo:</legend>
 	  				<div class="form-group">
-	  					<input type="email" name="contactInfo.email" class="form-control-sm" placeholder="*Email" value="testval@a.com">
+	  					<input type="email" name="contactInfo.email" class="form-control-sm" placeholder="*Email">
 	  					<span class="validationError" th:if="${#fields.hasErrors('contactInfo.email')}" th:errors="*{contactInfo.email}">*{contactInfo.email} Error</span>
-	  					<input type="text" name="contactInfo.phoneNos" class="form-control-sm" placeholder="*Phone(s)#" value="1234567890">
+	  					<input type="text" name="contactInfo.phoneNos" class="form-control-sm" placeholder="*Phone(s)#">
 	  					<span class="validationError" th:if="${#fields.hasErrors('contactInfo.phoneNos')}" th:errors="*{contactInfo.phoneNos}">*{contactInfo.phoneNos} Error</span>
 	  				</div>
 	  			</fieldset>	
@@ -68,15 +68,15 @@
 	  					<input type="text" name="addressInfo.landmark" class="form-control-sm" placeholder="Landmark(If any)">
 	  				</div>
 	  				<div class="form-group">
-	  					<input type="text" name="addressInfo.city" class="form-control-sm" placeholder="*City" value="testval">
+	  					<input type="text" name="addressInfo.city" class="form-control-sm" placeholder="*City">
 	  					<span class="validationError" th:if="${#fields.hasErrors('addressInfo.city')}" th:errors="*{addressInfo.city}">*{addressInfo.city} Error</span>
-	  					<input type="text" name="addressInfo.state" class="form-control-sm" placeholder="*State" value="testval">
+	  					<input type="text" name="addressInfo.state" class="form-control-sm" placeholder="*State">
 	  					<span class="validationError" th:if="${#fields.hasErrors('addressInfo.state')}" th:errors="*{addressInfo.state}">*{addressInfo.state} Error</span>
-	  					<input type="text" name="addressInfo.country" class="form-control-sm" placeholder="*Country" value="testval">
+	  					<input type="text" name="addressInfo.country" class="form-control-sm" placeholder="*Country">
 	  					<span class="validationError" th:if="${#fields.hasErrors('addressInfo.country')}" th:errors="*{addressInfo.country}">*{addressInfo.country} Error</span>
 	  				</div>
 	  				<div class="form-group">
-	  					<input type="text" name="addressInfo.pincode" class="form-control-sm" placeholder="*Pincode" value="testval">
+	  					<input type="text" name="addressInfo.pincode" class="form-control-sm" placeholder="*Pincode">
 	  					<span class="validationError" th:if="${#fields.hasErrors('addressInfo.pincode')}" th:errors="*{addressInfo.pincode}">*{addressInfo.pincode} Error</span>
 	  				</div>
 	  			</fieldset>	
@@ -84,7 +84,7 @@
   					<input type="text" class="form-control" name="remarks" placeholder="Remarks(If any)">
   				</div>
   				<div style="text-align: center;padding:5px">
-  					<button style="text-align: center;" th:text="#{addcustomer.submit}">submit customer</button>
+  					<button style="text-align: center;" th:text="#{updatecustomer.submit}">submit customer</button>
   				</div>  				
 			</form>
 		</div>

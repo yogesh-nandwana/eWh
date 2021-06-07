@@ -30,7 +30,7 @@ public class CustomerController {
 	}
 	
 	@GetMapping("/addcustomer")
-	public String addCustomer(Model m) {
+	public String showAddCustomerForm(Model m) {
 		log.info("/addcustomer request arrived for userId");
 		CustomerInfo customerInfo = new CustomerInfo();
 		AddressInfo addressInfo = new AddressInfo();
@@ -57,7 +57,7 @@ public class CustomerController {
 	}
 	
 	@GetMapping("/customers/update/{id}")
-	public String updateCustomer(@PathVariable final Long id,Model m) {
+	public String showUpdateCustomerForm(@PathVariable final Long id,Model m) {
 		log.info("/customers/update request arrived by userId");
 		CustomerInfo customerInfo = customerService.findCustomer(id);
 		m.addAttribute("customerInfo", customerInfo);

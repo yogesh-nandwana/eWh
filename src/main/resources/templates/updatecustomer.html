@@ -27,7 +27,7 @@
  				<fieldset class="border p-2">
   					<legend class="col-form-label col-sm-2 pt-0">Personalia:</legend>
 					<div class="form-group">
-	  					<select name="Initial" class="form-control-sm">
+	  					<select name="Initial" th:field="*{initial}" class="form-control-sm">
 	  						<option value="MR">Mr</option>
 	  						<option value="MRS">Mrs</option>
 	  						<option value="MISS">Miss</option>
@@ -41,7 +41,7 @@
 	    			</div>
 	  				<div class="form-group">
 	  					<span>*Type:</span>
-	  					<select name="customerType" class="form-control-sm">
+	  					<select name="customerType" th:field="*{customerType}" class="form-control-sm">
 	  						<option value="TRADER">Trader</option>
 	  						<option value="FARMER">Farmer</option>
 	  					</select>
@@ -81,7 +81,7 @@
 	  				</div>
 	  			</fieldset>	
   				<div class="form-group">
-  					<input type="text" class="form-control" th:field="*{addressInfo.remarks}" name="remarks" placeholder="Remarks(If any)">
+  					<input type="text" class="form-control" th:field="*{remarks}" name="remarks" placeholder="Remarks(If any)">
   				</div>
   				<div style="text-align: center;padding:5px">
   					<button style="text-align: center;" th:text="#{updatecustomer.submit}">submit customer</button>

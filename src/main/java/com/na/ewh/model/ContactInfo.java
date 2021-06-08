@@ -16,10 +16,10 @@ public class ContactInfo {
 	private CustomerInfo customer;
 
 	@Email
-	@NotNull
+	@NotBlank
 	private String email;
 
-	@NotNull
+	@NotBlank
 	private String phoneNos;
 	
 	public Long getId() {

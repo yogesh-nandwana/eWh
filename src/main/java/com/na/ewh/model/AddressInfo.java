@@ -8,7 +8,7 @@ import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.MapsId;
 import javax.persistence.OneToOne;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 public class AddressInfo {
@@ -19,13 +19,13 @@ public class AddressInfo {
 	private String street;
 	private String landmark;
 	
-	@NotNull
+	@NotBlank
 	private String city;
-	@NotNull
+	@NotBlank
 	private String state;
-	@NotNull
+	@NotBlank
 	private String country;
-	@NotNull
+	@NotBlank
 	private String pincode;
 	
 	@OneToOne(fetch = FetchType.LAZY)

@@ -72,6 +72,11 @@ public class CustomerController {
 		if (errors.hasErrors()) {
 			return "updatecustomer";
 		}
+		
+		//setting back address id and contact id as existing(i.e. equal to customer's id)
+		customerInfo.getAddressInfo().setId(customerInfo.getId());
+		customerInfo.getContactInfo().setId(customerInfo.getId());
+		
 		customerService.saveCustomer(customerInfo);
 		
 		return "redirect:/customers";

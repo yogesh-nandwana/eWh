@@ -36,6 +36,9 @@ public class EwhSecurityConfig extends WebSecurityConfigurerAdapter {
 			//.loginPage("/login");
 	}
 
+	/**
+	 *This method overrides base class method to fetch and load login user details from db.
+	 */
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.userDetailsService(new UserDetailsService() {

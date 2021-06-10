@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+	<meta charset="utf-8">
+	<title th:text="#{home.title}">EWh Application1</title>
+	<link rel="shortcut icon" type="image/jpg" th:href="@{images/inventory.jpg}"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" th:href="@{css/bootstrap.min.css}">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body class="container">
+    <div style="text-align: right;" sec:authorize="isAuthenticated()">
+        Welcome <span style="color:maroon;" sec:authentication="name"></span> !&nbsp; 
+    	<a href="/logout" th:text="#{logout}">Logout1</a>
+    	<div sec:authorize="hasRole('ADMIN')">
+     		<a href="/h2-console" th:text="#{db}">h2-console</a>
+    	</div>
+    </div>
+	<div style="text-align: center;padding-top: 20px">
+	    <img alt="Inventory image" th:src="@{images/inventory.jpg}" th:height="100px" align="middle">
+		<h1 th:text="#{commodity.info}">Commodity Info</h1>
+		<div class="table-responsive" style="padding-top: 10px;">
+			<table class="table">
+		  		<thead>
+		    		<tr>
+			      		<th scope="col" th:text="#{commodity.name}">Name1</th>
+			      		<th scope="col" th:text="#{commodity.type}">Type1</th>
+			      		<th scope="col" th:text="#{commodity.heading.update}">Update1</th>
+			      		<th scope="col" th:text="#{commodity.heading.delete}">Delete1</th>
+		    		</tr>
+		 	  	</thead>
+		  	  	<tbody th:each="commodity : ${commodities}">
+		  	    	<tr>
+		      		  <td th:text="${commodity.name()}">Name</td>
+		      		  <td th:text="${commodity.type}">Type</td>
+		      		  <td>
+		      		  	<!-- <form method="POST"> -->
+		      		  		<a th:title="#{commodities.heading.update}" style="color:green;" th:href="@{|commodities/update/${commodity.id}|}"><i class="fa fa-pencil fa-fw"></i></a>
+		      		  	<!-- </form> -->
+		      		  </td>
+		      		  <td>
+		      		  	<a th:title="#{commodities.heading.delete}" style="color:red;" th:href="@{|commodities/delete/${commodity.id}|}"><i class="fa fa-trash fa-fw"></i></a>
+		      		  </td>		      		  
+		    		</tr>	
+		  		</tbody>
+			</table>
+		</div>
+	</div>
+	<form method="GET" action="/addcommoidty">
+		<div style="text-align: center;padding-top: 20px">
+			<button th:text="#{addcommodity.heading}">Add commodity1</button>
+		</div>
+	</form>
+	<div style="text-align: center;">
+		<p class="mt-5 mb-3 text-muted">Copyright &copy; 2019-2020</p>
+	</div>
+	
+  <script th:src="@{js/jquery-slim.min.js}"></script>
+  <script th:src="@{js/popper.min.js}"></script>
+  <script th:src="@{js/bootstrap.min.js}"></script>
+</body>
+</html>

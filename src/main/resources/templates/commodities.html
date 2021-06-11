@@ -6,6 +6,7 @@
 	<link rel="shortcut icon" type="image/jpg" th:href="@{images/inventory.jpg}"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="stylesheet" th:href="@{css/bootstrap.min.css}">
+	<link rel="stylesheet" th:href="@{css/ewh.css}">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body class="container">
@@ -31,14 +32,18 @@
 		    		<tr>
 			      		<th scope="col" th:text="#{commodity.name}">Name1</th>
 			      		<th scope="col" th:text="#{commodity.type}">Type1</th>
+			      		<th scope="col" th:text="#{commodity.unitPrice}">Unit price</th>
+			      		<th scope="col" th:text="#{commodity.storageCharge}">Storage charge</th>
 			      		<th scope="col" th:text="#{commodities.heading.update}">Update1</th>
 			      		<th scope="col" th:text="#{commodities.heading.delete}">Delete1</th>
 		    		</tr>
 		 	  	</thead>
 		  	  	<tbody th:each="commodity : ${commodities}">
 		  	    	<tr>
-		      		  <td th:text="${commodity.name()}">Name</td>
+		      		  <td th:text="${commodity.name}">Name</td>
 		      		  <td th:text="${commodity.type}">Type</td>
+		      		  <td th:text="${commodity.unitPrice}">UnitPrice</td>
+		      		  <td th:text="${commodity.storageCharge}">StorageCharge</td>
 		      		  <td>
 		      		  		<a th:title="#{commodities.heading.update}" style="color:green;" th:href="@{|commodities/update/${commodity.id}|}"><i class="fa fa-pencil fa-fw"></i></a>
 		      		  </td>

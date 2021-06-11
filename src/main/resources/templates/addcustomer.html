@@ -8,6 +8,12 @@
 	<link rel="stylesheet" th:href="@{css/ewh.css}">
 </head>
 <body class="container">
+    <ul>
+		<li><a class="active" href="/">Home</a></li>
+		<li><a href="/customers">Customers</a></li>
+		<li><a href="/commodities">Commodities</a></li>
+		<li><a href="#about">About</a></li>
+	</ul>
     <div style="text-align: right;" sec:authorize="isAuthenticated()">
         Welcome <span style="color:maroon;" sec:authentication="name"></span> !&nbsp; 
     	<a href="/logout" th:text="#{logout}">Logout1</a>

@@ -9,6 +9,12 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body class="container">
+    <ul>
+		<li><a class="active" href="/">Home</a></li>
+		<li><a href="/customers">Customers</a></li>
+		<li><a href="/commodities">Commodities</a></li>
+		<li><a href="#about">About</a></li>
+	</ul>
     <div style="text-align: right;" sec:authorize="isAuthenticated()">
         Welcome <span style="color:maroon;" sec:authentication="name"></span> !&nbsp; 
     	<a href="/logout" th:text="#{logout}">Logout1</a>

@@ -2,12 +2,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
 	<meta charset="utf-8">
-	<title th:text="#{home.title}">EWh Application1</title>
-	<link rel="shortcut icon" type="image/jpg" th:href="@{images/inventory.jpg}"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<link rel="stylesheet" th:href="@{css/bootstrap.min.css}">
+	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="shortcut icon" type="image/jpg" th:href="@{images/inventory.jpg}"/>
 	<link rel="stylesheet" th:href="@{css/ewh.css}">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<title th:text="#{home.title}">EWh Application1</title>
 </head>
 <body class="container">
     <ul>
@@ -57,15 +59,15 @@
 	</div>
 	<form method="GET" action="/addcommodity">
 		<div style="text-align: center;padding-top: 20px">
-			<button th:text="#{addcommodity.heading}">Add commodity1</button>
+			<button type="submit" class="btn btn-primary" th:text="#{addcommodity.heading}">Add commodity1</button>
 		</div>
 	</form>
 	<div style="text-align: center;">
 		<p class="mt-5 mb-3 text-muted">Copyright &copy; 2019-2020</p>
 	</div>
 	
-  <script th:src="@{js/jquery-slim.min.js}"></script>
-  <script th:src="@{js/popper.min.js}"></script>
-  <script th:src="@{js/bootstrap.min.js}"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 </html>

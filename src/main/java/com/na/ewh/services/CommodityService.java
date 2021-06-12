@@ -1,6 +1,6 @@
 package com.na.ewh.services;
 
-import java.util.Optional;
+import javax.validation.Valid;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,5 +21,10 @@ public class CommodityService {
 		log.info("Inside getCommodities()");
 		Iterable<CommodityInfo> commodities = commodityRepository.findAll();
 		return commodities;
+	}
+
+	public void saveCommodity(@Valid CommodityInfo commodityInfo) {
+		log.info("Inside saveCommodity()");
+		commodityRepository.save(commodityInfo);
 	}
 }

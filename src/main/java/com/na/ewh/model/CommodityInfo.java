@@ -1,16 +1,25 @@
 package com.na.ewh.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 @Entity
 public class CommodityInfo {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+	@NotBlank
+	@Size(min = 4,max = 8,message = "First Name must be between 4 to 8 characters long.")
 	private String name;
 	private String type;
+
+	@Min(value = 1)
 	private Float unitPrice;
+
+	@Min(value = 1)
 	private Float storageCharge;
 	
 	public Long getId() {

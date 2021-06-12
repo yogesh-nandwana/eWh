@@ -28,9 +28,9 @@ public class EwhSecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
 			.antMatchers("/").permitAll()
-			.antMatchers("/customers","/savecustomer","/updatecustomer","/logout").hasAnyRole("USER","ADMIN")
+			.antMatchers("/customers","/savecustomer","/savecommodity","/updatecustomer","/logout").hasAnyRole("USER","ADMIN")
 			.antMatchers("/admin", "/h2-console/**").hasRole("ADMIN")
-			.and().csrf().ignoringAntMatchers("/h2-console/**","/savecustomer","/updatecustomer")//don't apply CSRF protection to /h2-console
+			.and().csrf().ignoringAntMatchers("/h2-console/**","/savecustomer","/savecommodity","/updatecustomer")//don't apply CSRF protection to /h2-console
 			.and().headers().frameOptions().sameOrigin()//allow use of frame to same origin urls
 			.and().formLogin();//enable form login instead of basic login
 			//.loginPage("/login");

@@ -2,16 +2,17 @@ package com.na.ewh.controllers;
 
 import java.security.Principal;
 
+import javax.validation.Valid;
+
 import org.slf4j.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
-import com.na.ewh.model.AddressInfo;
 import com.na.ewh.model.CommodityInfo;
-import com.na.ewh.model.ContactInfo;
-import com.na.ewh.model.CustomerInfo;
 import com.na.ewh.services.CommodityService;
 
 @Controller
@@ -39,5 +40,15 @@ public class CommodityController {
 		
 		m.addAttribute("commodityInfo",commodityInfo);
 		return "addcommodity";
+	}
+	
+	@PostMapping("/savecommodity")
+	public String saveCommodity(@Valid CommodityInfo commodityInfo,Errors errors,Principal principal) {
+		log.info("/saveCommodity request by user:{}",principal.getName());
+		if(errors.hasErrors()) {
+			return "addcommodity";
+		}
+		commodityService.saveCommodity(commodityInfo);
+		return "redirect:/commodities";
 	}
 }

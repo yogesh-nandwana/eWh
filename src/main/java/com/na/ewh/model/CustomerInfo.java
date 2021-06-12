@@ -11,7 +11,7 @@ import javax.validation.constraints.*;
 @Entity
 public class CustomerInfo {
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue
 	private Long id;
 
 	@NotBlank

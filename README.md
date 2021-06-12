@@ -9,3 +9,4 @@
 
 ### Pending TODO's
 * Need to fix breaking tests
+* There should be a way to add new commodity types.

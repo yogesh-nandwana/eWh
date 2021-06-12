@@ -20,7 +20,7 @@ public class LoginController {
 		}
 		String userId = loginForm.getUserId();
 		String pwd = loginForm.getPwd();
-		log.info("/login request arrived for userId:"+userId);
+		log.info("/login request by user:"+userId);
 		if("test".equals(userId) && "test123".equals(pwd)) {
 			log.info("user:"+userId+" logged in successful, redirecting to customers page.");
 			return "redirect:/customers";

@@ -12,7 +12,7 @@ public class HomeController {
 	
 	@GetMapping("/")
 	public String showHomePage(LoginForm loginForm) {
-		log.info("/ request arrived. Redirecting to /customers");
+		log.info("/ request. Redirecting to /customers");
 		return "redirect:/customers";
 	}
 }

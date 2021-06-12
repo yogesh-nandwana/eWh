@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.na.ewh.model.CommodityInfo;
@@ -25,7 +26,7 @@ public class CommodityController {
 	@GetMapping("/commodities")
 	public String getAllCommodities(Model m,Principal principal){
 		Iterable<CommodityInfo> commodities = commodityService.getCommodities();
-		log.info("/commodities request arrived by user:{}",principal.getName());
+		log.info("/commodities request by user:{}",principal.getName());
 		
 		m.addAttribute("commodities", commodities);
 		
@@ -34,7 +35,7 @@ public class CommodityController {
 	
 	@GetMapping("/addcommodity")
 	public String showAddCommodityForm(Model m,Principal principal) {
-		log.info("/addcommodity request arrived by user:{}",principal.getName());
+		log.info("/addcommodity request by user:{}",principal.getName());
 		
 		CommodityInfo commodityInfo = new CommodityInfo();
 		
@@ -49,6 +50,13 @@ public class CommodityController {
 			return "addcommodity";
 		}
 		commodityService.saveCommodity(commodityInfo);
+		return "redirect:/commodities";
+	}
+	
+	@GetMapping("/commodities/delete/{id}")
+	public String deleteCommodity(@PathVariable final Long id,Principal principal) {
+		log.info("delete customer request by user:{}",principal.getName());
+		commodityService.deleteCommodity(id);
 		return "redirect:/commodities";
 	}
 }

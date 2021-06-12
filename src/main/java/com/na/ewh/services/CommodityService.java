@@ -27,4 +27,9 @@ public class CommodityService {
 		log.info("Inside saveCommodity()");
 		commodityRepository.save(commodityInfo);
 	}
+
+	public void deleteCommodity(Long id) {
+		log.info("Inside deleteCommodity()");
+		commodityRepository.deleteById(id);
+	}
 }

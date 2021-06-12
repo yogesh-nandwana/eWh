@@ -24,7 +24,7 @@ public class CustomerController {
 	@GetMapping("/customers")
 	public String getAllCustomers(Model m,Principal principal) {
 		Iterable<CustomerInfo> customers = customerService.getCustomers();
-		log.info("/customers request arrived by user:{}",principal.getName());
+		log.info("/customers request by user:{}",principal.getName());
 		
 		m.addAttribute("customers", customers);
 		
@@ -33,7 +33,7 @@ public class CustomerController {
 	
 	@GetMapping("/addcustomer")
 	public String showAddCustomerForm(Model m,Principal principal) {
-		log.info("/addcustomer request arrived by user:{}",principal.getName());
+		log.info("/addcustomer request by user:{}",principal.getName());
 		CustomerInfo customerInfo = new CustomerInfo();
 		AddressInfo addressInfo = new AddressInfo();
 		
@@ -48,7 +48,7 @@ public class CustomerController {
 	
 	@PostMapping("/savecustomer")
 	public String saveCustomer(@Valid CustomerInfo customerInfo,Errors errors,Principal principal) {
-		log.info("/savecustomer request arrived by user:{}",principal.getName());
+		log.info("/savecustomer request by user:{}",principal.getName());
 		if (errors.hasErrors()) {
 			return "addcustomer";
 		}
@@ -60,7 +60,7 @@ public class CustomerController {
 	
 	@GetMapping("/customers/update/{id}")
 	public String showUpdateCustomerForm(@PathVariable final Long id,Model m,Principal principal) {
-		log.info("/customers/update request arrived by by user:{}",principal.getName());
+		log.info("/customers/update request by by user:{}",principal.getName());
 		CustomerInfo customerInfo = customerService.findCustomer(id);
 		m.addAttribute("customerInfo", customerInfo);
 		return "updatecustomer";
@@ -68,7 +68,7 @@ public class CustomerController {
 	
 	@PostMapping("/updatecustomer")
 	public String updateCustomer(@Valid CustomerInfo customerInfo,Errors errors,Principal principal) {
-		log.info("/updatecustomer request arrived by user:{}",principal.getName());
+		log.info("/updatecustomer request by user:{}",principal.getName());
 		if (errors.hasErrors()) {
 			return "updatecustomer";
 		}
@@ -84,7 +84,7 @@ public class CustomerController {
 	
 	@GetMapping("/customers/delete/{id}")
 	public String deleteCustomer(@PathVariable final Long id,Principal principal) {
-		log.info("delete customer request arrived by user:{}",principal.getName());
+		log.info("delete customer request by user:{}",principal.getName());
 		customerService.deleteCustomer(id);
 		return "redirect:/customers";
 	}

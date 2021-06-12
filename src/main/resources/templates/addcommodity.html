@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+		<meta charset="utf-8">
+		<title th:text="#{addcommodity.title}">Add commodity</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<link rel="stylesheet" th:href="@{css/bootstrap.min.css}">
+		<link rel="stylesheet" th:href="@{css/ewh.css}">
+	</head>
+<body class="container">
+	 <ul>
+		<li><a class="active" href="/">Home</a></li>
+		<li><a href="/customers">Customers</a></li>
+		<li><a href="/commodities">Commodities</a></li>
+		<li><a href="#about">About</a></li>
+	</ul>
+	 <div style="text-align: right;" sec:authorize="isAuthenticated()">
+        Welcome <span style="color:maroon;" sec:authentication="name"></span> !&nbsp; 
+    	<a href="/logout" th:text="#{logout}">Logout1</a>
+    	<div sec:authorize="hasRole('ADMIN')">
+     		<a href="/h2-console" th:text="#{db}">h2-console</a>
+    	</div>
+    </div>
+	<div class="header">
+	    <img alt="Inventory image" th:src="@{images/inventory.jpg}" th:height="100px" align="middle">
+		<h1 th:text="#{addcommodity.heading}">Add Commodity1</h1>
+	</div>
+	<div class="form_class">
+			<form method="POST" action="/savecommodity" th:object="${commodityInfo}">
+				<div th:if="${#fields.hasErrors()}">
+ 					<span class="validationError">Please correct the problems below and resubmit.</span>
+ 				</div>
+ 				<fieldset class="border p-2">
+  					<legend class="col-form-label col-sm-2 pt-0">Info:</legend>
+					<div class="form-group">
+						<input type="text" class="form-control-sm" name="name" th:field="*{name}" placeholder="*Commodity Name">
+	  					<span class="validationError" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">*{name} Error</span>
+	  				</div>
+	  				<div class="form-group">
+	  					<input type="text" class="form-control-sm" name="unitPrice" th:field="*{unitPrice}" placeholder="*Unit Price">
+	  					<span class="validationError" th:if="${#fields.hasErrors('unitPrice')}" th:errors="*{unitPrice}">*{unitPrice} Error</span>
+	  					<input type="text" class="form-control-sm" name="storageCharge" th:field="*{storageCharge}" placeholder="*Storage Charge(Per Unit)">
+	  					<span class="validationError" th:if="${#fields.hasErrors('storageCharge')}" th:errors="*{storageCharge}">*{Storage Charge} Error</span>
+	  				</div>
+	  				<div class="form-group">
+	  					<select name="Type" th:field="*{type}" class="form-control-sm">
+	  						<option value="GRAIN">Grain</option>
+	  						<option value="OILY">Oily</option>
+	  						<option value="OTHER">Other</option>
+	  					</select>
+	    			</div>
+	  			</fieldset>	
+  				<div style="text-align: center;padding:5px">
+  					<button style="text-align: center;" th:text="#{addcommodity.submit}">submit commodity</button>
+  				</div>  				
+			</form>
+		</div>
+	<div style="text-align: center;">
+		<p class="mt-5 mb-3 text-muted">Copyright &copy; 2019-2020</p>
+	</div>
+  <script th:src="@{js/jquery-slim.min.js}"></script>
+  <script src="@{js/popper.min.js}"></script>
+  <script src="@{js/bootstrap.min.js}"></script>
+</body>
+</html>

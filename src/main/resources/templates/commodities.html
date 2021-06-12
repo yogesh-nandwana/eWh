@@ -25,7 +25,7 @@
     </div>
 	<div style="text-align: center;padding-top: 20px">
 	    <img alt="Inventory image" th:src="@{images/inventory.jpg}" th:height="100px" align="middle">
-		<h1 th:text="#{commodity.info}">Commodity Info</h1>
+		<h1 th:text="#{commodities.info}">Commodities Info</h1>
 		<div class="table-responsive" style="padding-top: 10px;">
 			<table class="table">
 		  		<thead>
@@ -43,7 +43,7 @@
 		      		  <td th:text="${commodity.name}">Name</td>
 		      		  <td th:text="${commodity.type}">Type</td>
 		      		  <td th:text="${commodity.unitPrice}">UnitPrice</td>
-		      		  <td th:text="${commodity.storageCharge}">StorageCharge</td>
+		      		  <td th:text="${commodity.storageCharge}">Storage Charge</td>
 		      		  <td>
 		      		  		<a th:title="#{commodities.heading.update}" style="color:green;" th:href="@{|commodities/update/${commodity.id}|}"><i class="fa fa-pencil fa-fw"></i></a>
 		      		  </td>
@@ -55,7 +55,7 @@
 			</table>
 		</div>
 	</div>
-	<form method="GET" action="/addcommoidty">
+	<form method="GET" action="/addcommodity">
 		<div style="text-align: center;padding-top: 20px">
 			<button th:text="#{addcommodity.heading}">Add commodity1</button>
 		</div>

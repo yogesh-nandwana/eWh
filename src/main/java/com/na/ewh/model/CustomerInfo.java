@@ -1,8 +1,7 @@
 package com.na.ewh.model;
 
 import java.sql.Date;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
+import java.util.stream.*;
 
 import javax.persistence.*;
 import javax.validation.Valid;
@@ -11,7 +10,7 @@ import javax.validation.constraints.*;
 @Entity
 public class CustomerInfo {
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
 	@NotBlank
@@ -37,10 +36,12 @@ public class CustomerInfo {
 	@Column(name="REG_DATE")
 	private Date registrationDate;
 
-	@Valid @OneToOne(mappedBy = "customer",cascade = CascadeType.ALL)
+	@Valid @OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name="CONTACT_ID", unique=true, nullable=false, updatable=false)
 	private ContactInfo contactInfo;
 
-	@Valid @OneToOne(mappedBy = "customer",cascade = CascadeType.ALL)
+	@Valid @OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name="ADDRESS_ID", unique=true, nullable=false, updatable=false)
 	private AddressInfo addressInfo;
 	
 	private String remarks;

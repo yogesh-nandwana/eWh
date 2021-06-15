@@ -1,18 +1,14 @@
 package com.na.ewh.model;
 
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
+import java.util.stream.*;
 
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.Id;
-import javax.persistence.MapsId;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 
 @Entity
 public class AddressInfo {
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
 	private String houseNo;
@@ -28,8 +24,7 @@ public class AddressInfo {
 	@NotBlank
 	private String pincode;
 	
-	@OneToOne(fetch = FetchType.LAZY)
-	@MapsId
+	@OneToOne(mappedBy = "addressInfo",fetch = FetchType.LAZY)
 	CustomerInfo customer;
 	
 	public Long getId() {

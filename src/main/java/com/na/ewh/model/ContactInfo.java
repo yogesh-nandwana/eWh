@@ -9,10 +9,10 @@ import javax.validation.constraints.*;
 @Entity
 public class ContactInfo {
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@MapsId
-	@OneToOne(fetch = FetchType.LAZY)
+	@OneToOne(mappedBy = "contactInfo",fetch = FetchType.LAZY)
 	private CustomerInfo customer;
 
 	@Email

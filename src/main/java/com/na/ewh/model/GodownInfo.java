@@ -13,11 +13,11 @@ public class GodownInfo {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@Valid @OneToOne
-	private AddressInfo addressInfo;
+	@Valid @NotBlank
+	private String address;
 	
-	@Valid @OneToOne
-	private ContactInfo contactInfo;
+	@Valid @NotBlank
+	private String contactNo;
 	
 	@Valid
 	@Max(value = 50)
@@ -39,28 +39,28 @@ public class GodownInfo {
 		this.id = id;
 	}
 
-	public AddressInfo getAddressInfo() {
-		return addressInfo;
+	public String getAddress() {
+		return address;
 	}
 
-	public void setAddressInfo(AddressInfo addressInfo) {
-		this.addressInfo = addressInfo;
+	public void setAddress(String address) {
+		this.address = address;
 	}
 
-	public ContactInfo getContactInfo() {
-		return contactInfo;
+	public String getContactNo() {
+		return contactNo;
 	}
 
-	public void setContactInfo(ContactInfo contactInfo) {
-		this.contactInfo = contactInfo;
+	public void setContactNo(String contactNo) {
+		this.contactNo = contactNo;
 	}
 
-	public Set<StackInfo> getStacks() {
-		return stacks;
+	public Integer getNoOfStacks() {
+		return noOfStacks;
 	}
 
-	public void setStacks(Set<StackInfo> stacks) {
-		this.stacks = stacks;
+	public void setNoOfStacks(Integer noOfStacks) {
+		this.noOfStacks = noOfStacks;
 	}
 
 	public Date getOpeningDate() {
@@ -79,11 +79,11 @@ public class GodownInfo {
 		this.remarks = remarks;
 	}
 
-	public Integer getNoOfStacks() {
-		return noOfStacks;
+	public Set<StackInfo> getStacks() {
+		return stacks;
 	}
 
-	public void setNoOfStacks(Integer noOfStacks) {
-		this.noOfStacks = noOfStacks;
+	public void setStacks(Set<StackInfo> stacks) {
+		this.stacks = stacks;
 	}
 }

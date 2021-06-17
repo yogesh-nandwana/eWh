@@ -43,13 +43,6 @@ public class GodownController {
 		godownInfo.setOpeningDate(new java.sql.Date(System.currentTimeMillis()));
 		godownInfo.setStacks(new TreeSet<StackInfo>());
 		
-		AddressInfo addressInfo = new AddressInfo();
-		
-		ContactInfo contactInfo = new ContactInfo();
-		
-		godownInfo.setAddressInfo(addressInfo);
-		godownInfo.setContactInfo(contactInfo);
-		
 		m.addAttribute("godownInfo",godownInfo);
 		return "addgodown";
 	}

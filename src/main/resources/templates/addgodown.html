@@ -33,17 +33,13 @@
 				<div th:if="${#fields.hasErrors()}">
  					<span class="validationError">Please correct the problems below and resubmit.</span>
  				</div>
- 				<!-- <fieldset class="border p-2">
-  					<legend class="col-form-label col-sm-2 pt-0">Info:</legend>
+ 			    <fieldset class="border p-2">
+  					<legend class="col-form-label col-sm-2 pt-0">Capacity:</legend>
 					<div class="form-group">
-	  					<input type="text" class="form-control-sm" name="firstName" th:field="*{firstName}" placeholder="*First name">
-	  					<span class="validationError" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">*{firstName} Error</span>
-	  					<input type="text" class="form-control-sm" name="middleName" th:field="*{middleName}" placeholder="Middle name">
-	  					<span class="validationError" th:if="${#fields.hasErrors('middleName')}" th:errors="*{middleName}">*{middleName} Error</span>
-	  					<input type="text" class="form-control-sm" name="lastName" th:field="*{lastName}" placeholder="*Last name">
-	  					<span class="validationError" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">*{lastName} Error</span>
+	  					<input type="text" class="form-control-sm" name="noOfStacks" th:field="*{noOfStacks}" placeholder="*#Stacks">
+	  					<span class="validationError" th:if="${#fields.hasErrors('noOfStacks')}" th:errors="*{noOfStacks}">*{noOfStacks} Error</span>
 	    			</div>
-  				</fieldset> -->
+  				</fieldset>
   				<fieldset class="border p-2">
   				 	<legend class="col-form-label col-sm-2 pt-0">ContactInfo:</legend>
 	  				<div class="form-group">

@@ -1,6 +1,7 @@
 package com.na.ewh.controllers;
 
 import java.security.Principal;
+import java.util.*;
 
 import javax.validation.Valid;
 
@@ -13,9 +14,7 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.na.ewh.model.AddressInfo;
-import com.na.ewh.model.ContactInfo;
-import com.na.ewh.model.GodownInfo;
+import com.na.ewh.model.*;
 import com.na.ewh.services.GodownService;
 
 @Controller
@@ -36,9 +35,14 @@ public class GodownController {
 	}
 	
 	@GetMapping("/addgodown")
-	public String showAddCustomerForm(Model m,Principal principal) {
+	public String showAddGodownForm(Model m,Principal principal) {
 		log.info("/addgodown request by user:{}",principal.getName());
 		GodownInfo godownInfo = new GodownInfo();
+		
+		godownInfo.setNoOfStacks(10);//default no of stacks
+		godownInfo.setOpeningDate(new java.sql.Date(System.currentTimeMillis()));
+		godownInfo.setStacks(new TreeSet<StackInfo>());
+		
 		AddressInfo addressInfo = new AddressInfo();
 		
 		ContactInfo contactInfo = new ContactInfo();

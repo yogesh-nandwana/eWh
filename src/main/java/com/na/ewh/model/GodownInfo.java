@@ -4,6 +4,8 @@ import java.sql.Date;
 import java.util.Set;
 
 import javax.persistence.*;
+import javax.validation.Valid;
+import javax.validation.constraints.*;
 
 @Entity
 public class GodownInfo {
@@ -11,18 +13,23 @@ public class GodownInfo {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@OneToOne
+	@Valid @OneToOne
 	private AddressInfo addressInfo;
 	
-	@OneToOne
+	@Valid @OneToOne
 	private ContactInfo contactInfo;
 	
-	@OneToMany
-	private Set<StackInfo> stacks;
+	@Valid
+	@Max(value = 50)
+	@Min(value = 10)
+	private Integer noOfStacks;
 	
 	private Date openingDate;
 	
 	private String remarks;
+	
+	@OneToMany
+	private Set<StackInfo> stacks;
 
 	public Long getId() {
 		return id;
@@ -70,5 +77,13 @@ public class GodownInfo {
 
 	public void setRemarks(String remarks) {
 		this.remarks = remarks;
+	}
+
+	public Integer getNoOfStacks() {
+		return noOfStacks;
+	}
+
+	public void setNoOfStacks(Integer noOfStacks) {
+		this.noOfStacks = noOfStacks;
 	}
 }

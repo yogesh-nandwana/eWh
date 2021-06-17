@@ -14,6 +14,7 @@
 		<li><a class="active" href="/">Home</a></li>
 		<li><a href="/customers">Customers</a></li>
 		<li><a href="/commodities">Commodities</a></li>
+		<li><a href="/godowns">Godowns</a></li>
 		<li><a href="#about">About</a></li>
 	</ul>
     <div style="text-align: right;" sec:authorize="isAuthenticated()">
@@ -72,7 +73,7 @@
   				<fieldset class="border p-2">
   					<legend class="col-form-label col-sm-2 pt-0">AddressInfo:</legend>
 	  				<div class="form-group">
-	  					<input type="text" name="addressInfo.houseNo" class="form-control-sm" th:field="*{addressInfo.houseNo}" placeholder="House#">
+	  					<input type="text" name="addressInfo.houseNo" class="form-control-sm" th:field="*{addressInfo.houseNo}" placeholder="Door#">
 	  					<input type="text" name="addressInfo.street" class="form-control-sm" th:field="*{addressInfo.street}" placeholder="Street">
 	  					<input type="text" name="addressInfo.landmark" class="form-control-sm" th:field="*{addressInfo.landmark}" placeholder="Landmark(If any)">
 	  				</div>

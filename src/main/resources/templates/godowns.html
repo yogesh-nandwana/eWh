@@ -28,37 +28,30 @@
     </div>
 	<div style="text-align: center;padding-top: 20px">
 	    <img alt="Inventory image" th:src="@{images/inventory.jpg}" th:height="100px" align="middle">
-		<h1 th:text="#{customer.info}">Customer Info</h1>
+		<h1 th:text="#{godown.info}">Godown Info</h1>
 		<div class="table-responsive" style="padding-top: 10px;">
 			<table class="table">
 		  		<thead>
 		    		<tr>
-			      		<th scope="col" th:text="#{customer.name}">Name1</th>
-			      		<th scope="col" th:text="#{customer.dob}">DOB1</th>
-			      		<th scope="col" th:text="#{customer.dor}">DOR1</th>
-			      		<th scope="col" th:text="#{customer.type}">Type1</th>
+			      		<th scope="col" th:text="#{godown.id}">Id1</th>
+			      		<th scope="col" th:text="#{godown.openingDate}">OpeningDate</th>
 			      		<th scope="col" th:text="#{customer.address}">Address1</th>
 			      		<th scope="col" th:text="#{customer.contact}">Contact1</th>
 			      		<th scope="col" th:text="#{customer.store}">Store1</th>
-			      		<th scope="col" th:text="#{customer.evict}">Evict1</th>
 			      		<th scope="col" th:text="#{customers.heading.update}">Update1</th>
 			      		<th scope="col" th:text="#{customers.heading.delete}">Delete1</th>
 		    		</tr>
 		 	  	</thead>
-		  	  	<tbody th:each="cust : ${customers}">
+		  	  	<tbody th:each="gd : ${godowns}">
 		  	    	<tr>
-		      		  <td th:text="${cust.getName()}">Name</td>
-		      		  <td th:text="${cust.dateOfBirth}">Dob</td>
-		      		  <td th:text="${cust.registrationDate}">Dor</td>
-		      		  <td th:text="${cust.customerType}">Type</td>
-		      		  <td th:text="${cust.getAddressInfo()}">Address</td>
-		      		  <td th:text="${cust.getContactInfo()}">Contact</td>
-		      		  <td><a th:href="@{|customers/${cust.id}/store|}" th:text=#{customer.store}>Store</a></td>	
-		      		  <td><a th:href="@{|customers/${cust.id}/evict|}" th:text=#{customer.evict}>Evict</a></td>	
 		      		  <td>
-		      		  	<!-- <form method="POST"> -->
-		      		  		<a th:title="#{customers.heading.update}" style="color:green;" th:href="@{|customers/update/${cust.id}|}"><i class="fa fa-pencil fa-fw"></i></a>
-		      		  	<!-- </form> -->
+		      		  	<a th:href="@{|godowns/${gd.id}|}" th:text=${cust.id}>id</a>
+		      		  </td>
+		      		  <td th:text="${gd.openingDate}">Dob</td>
+		      		  <td th:text="${gd.getAddressInfo()}">Address</td>
+		      		  <td th:text="${gd.getContactInfo()}">Contact</td>
+		      		  <td>
+		      		  	<a th:title="#{customers.heading.update}" style="color:green;" th:href="@{|customers/update/${cust.id}|}"><i class="fa fa-pencil fa-fw"></i></a>
 		      		  </td>
 		      		  <td>
 		      		  	<a th:title="#{customers.heading.delete}" style="color:red;" th:href="@{|customers/delete/${cust.id}|}"><i class="fa fa-trash fa-fw"></i></a>
@@ -68,9 +61,9 @@
 			</table>
 		</div>
 	</div>
-	<form method="GET" action="/addcustomer">
+	<form method="GET" action="/addgodown">
 		<div style="text-align: center;padding-top: 20px">
-			<button type="submit" class="btn btn-primary" th:text="#{addcustomer.heading}">Add customer1</button>
+			<button type="submit" class="btn btn-primary" th:text="#{addgodown.heading}">Add godown1</button>
 		</div>
 	</form>
 	<div style="text-align: center;">

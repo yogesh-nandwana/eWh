@@ -1,22 +1,28 @@
 package com.na.ewh.model;
 
+import java.sql.Date;
 import java.util.Set;
 
 import javax.persistence.*;
 
+@Entity
 public class GodownInfo {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
 	@OneToOne
-	private AddressInfo address;
+	private AddressInfo addressInfo;
 	
 	@OneToOne
-	private ContactInfo contact;
+	private ContactInfo contactInfo;
 	
 	@OneToMany
 	private Set<StackInfo> stacks;
+	
+	private Date openingDate;
+	
+	private String remarks;
 
 	public Long getId() {
 		return id;
@@ -26,20 +32,20 @@ public class GodownInfo {
 		this.id = id;
 	}
 
-	public AddressInfo getAddress() {
-		return address;
+	public AddressInfo getAddressInfo() {
+		return addressInfo;
 	}
 
-	public void setAddress(AddressInfo address) {
-		this.address = address;
+	public void setAddressInfo(AddressInfo addressInfo) {
+		this.addressInfo = addressInfo;
 	}
 
-	public ContactInfo getContact() {
-		return contact;
+	public ContactInfo getContactInfo() {
+		return contactInfo;
 	}
 
-	public void setContact(ContactInfo contact) {
-		this.contact = contact;
+	public void setContactInfo(ContactInfo contactInfo) {
+		this.contactInfo = contactInfo;
 	}
 
 	public Set<StackInfo> getStacks() {
@@ -48,5 +54,21 @@ public class GodownInfo {
 
 	public void setStacks(Set<StackInfo> stacks) {
 		this.stacks = stacks;
+	}
+
+	public Date getOpeningDate() {
+		return openingDate;
+	}
+
+	public void setOpeningDate(Date openingDate) {
+		this.openingDate = openingDate;
+	}
+
+	public String getRemarks() {
+		return remarks;
+	}
+
+	public void setRemarks(String remarks) {
+		this.remarks = remarks;
 	}
 }

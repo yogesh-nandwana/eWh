@@ -7,7 +7,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<link rel="stylesheet" th:href="@{css/ewh.css}">
 	
-	<title th:text="#{addcustomer.title}">EWh Application1</title>
+	<title th:text="#{addgodown.title}">EWh Application1</title>
 </head>
 <body class="container">
     <ul>
@@ -26,21 +26,16 @@
     </div>
 	<div class="header">
 	    <img alt="Inventory image" th:src="@{images/inventory.jpg}" th:height="100px" align="middle">
-		<h1 th:text="#{addcustomer.heading}">Add Customer1</h1>
+		<h1 th:text="#{addgodown.heading}">Add Customer1</h1>
 	</div>
 	<div class="form_class">
-			<form method="POST" action="/savecustomer" th:object="${customerInfo}">
+			<form method="POST" action="/savegodown" th:object="${godownInfo}">
 				<div th:if="${#fields.hasErrors()}">
  					<span class="validationError">Please correct the problems below and resubmit.</span>
  				</div>
- 				<fieldset class="border p-2">
-  					<legend class="col-form-label col-sm-2 pt-0">Personalia:</legend>
+ 				<!-- <fieldset class="border p-2">
+  					<legend class="col-form-label col-sm-2 pt-0">Info:</legend>
 					<div class="form-group">
-	  					<select name="Initial" th:field="*{initial}" class="form-control-sm">
-	  						<option value="MR">Mr</option>
-	  						<option value="MRS">Mrs</option>
-	  						<option value="MISS">Miss</option>
-	  					</select>
 	  					<input type="text" class="form-control-sm" name="firstName" th:field="*{firstName}" placeholder="*First name">
 	  					<span class="validationError" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">*{firstName} Error</span>
 	  					<input type="text" class="form-control-sm" name="middleName" th:field="*{middleName}" placeholder="Middle name">
@@ -48,17 +43,7 @@
 	  					<input type="text" class="form-control-sm" name="lastName" th:field="*{lastName}" placeholder="*Last name">
 	  					<span class="validationError" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">*{lastName} Error</span>
 	    			</div>
-	  				<div class="form-group">
-	  					<span>*Type:</span>
-	  					<select name="customerType" th:field="*{customerType}" class="form-control-sm">
-	  						<option value="TRADER">Trader</option>
-	  						<option value="FARMER">Farmer</option>
-	  					</select>
-	  					<span>*Birthdate:</span>
-	  					<input type="date" name="dateOfBirth" id="dateOfBirth" class="form-control-sm" th:field="*{dateOfBirth}" placeholder="*Birthday">
-	  					<span class="validationError" th:if="${#fields.hasErrors('dateOfBirth')}" th:errors="*{dateOfBirth}">*{dateOfBirth} Error</span>
-	  				</div>
-  				</fieldset>
+  				</fieldset> -->
   				<fieldset class="border p-2">
   				 	<legend class="col-form-label col-sm-2 pt-0">ContactInfo:</legend>
 	  				<div class="form-group">
@@ -68,7 +53,6 @@
 	  					<span class="validationError" th:if="${#fields.hasErrors('contactInfo.phoneNos')}" th:errors="*{contactInfo.phoneNos}">*{contactInfo.phoneNos} Error</span>
 	  				</div>
 	  			</fieldset>	
-	  			
   				<fieldset class="border p-2">
   					<legend class="col-form-label col-sm-2 pt-0">AddressInfo:</legend>
 	  				<div class="form-group">
@@ -93,7 +77,7 @@
   					<input type="text" class="form-control" name="remarks" th:field="*{remarks}" placeholder="Remarks(If any)">
   				</div>
   				<div style="text-align: center;padding:5px">
-  					<button type="submit" class="btn btn-primary" th:text="#{addcustomer.submit}">submit customer</button>
+  					<button type="submit" class="btn btn-primary" th:text="#{addgodown.submit}">submit godown</button>
   				</div>  				
 			</form>
 		</div>

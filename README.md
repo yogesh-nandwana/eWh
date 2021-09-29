@@ -2,10 +2,11 @@
 
 * Checkout/Clone from github.
 * Install JSON Viewer chrome extension.
-* Check any errors and run the application using maven command:mvnw.cmd spring-boot:run
+* Check if any errors?If there is any error with junit packages, add junit library on build path.
+* Run the application using maven command:mvnw.cmd spring-boot:run
 * $ curl localhost:8081/actuator/health to check health.
 * Access h2-console using http://localhost:8080/h2-console/
-* Access application via localhost:8080
+* Access application via localhost:8080 and use credentials from sql file.
 
 ### Pending TODO's
 * Need to fix breaking tests
